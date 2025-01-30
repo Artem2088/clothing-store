@@ -1,0 +1,36 @@
+.banner {
+    &__content {
+        padding: rem(9px);
+        padding-left: rem(15px);
+        background-color: #f7f7f7;
+        display: grid;
+        grid-template-columns: 1fr rem(220px);
+        gap: rem(25px);
+        @include media('max', 'lg') {
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+        &--light-brand-color {
+            background-color: #fcf7f1;
+        }
+    }
+
+    &__top {
+        display: flex;
+        align-items: center;
+        gap: rem(24px);
+    }
+    &__title {
+        font-size: rem(16px);
+        font-family: $font-family-base-medium;
+        display: flex;
+        align-items: center;
+        gap: rem(15px);
+        @include media('max', 'lg') {
+            gap: 8px;
+        }
+    }
+    &__title span {
+        padding-bottom: rem(3px);
+    }
+}

@@ -1,0 +1,194 @@
+extends ../templates/layout
+include ../mixins/_breadcrumbs
+
+block main
+    +breadcrumbs('', 'breadcrumb-catalog-category', 'Главная', 'Личный кабинет')
+    h1.visually-hidden Личный кабинет
+    section.section.cabinet-wrap
+        .cabinet-wrap__profile.d-none.d-lg-block
+            include ../_components/profile-user-card
+        .cabinet-wrap__content.cabinet-dashboard
+            .cabinet-dashboard__status
+                .status-card
+                    .status-card__header
+                        +icon('card', 20, 14)
+                        div
+                            .status-card__title
+                                | Карта клуба  № 005-560-230
+                            .status-card__sub-title
+                                | Вы с нами с 08 апреля 2009
+                    .status-card__body
+                        .status-card__percent 15&nbsp;
+                            span %
+                        .status-card__descriprion
+                            .status-card__descriprion-row
+                                | Ваш уровень:
+                                span Профи
+                            .status-card__descriprion-row
+                                | 257&nbsp;250&nbsp;₽ до уровня
+                                span Эксперт
+                .status-card.status-card--brand
+                    div
+                        .status-card__header
+                            +icon('coins-2', 20, 18)
+                            div
+                                .status-card__title
+                                    | лицевой счет
+                        .status-card__money 23&nbsp;700&nbsp;₽
+                        .status-card__bonus
+                            | 3&nbsp;500
+                            span Бонусов&nbsp;
+                                +icon('info', 16, 16)(data-uk-tooltip="title: Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium ipsum similique rem deserunt iusto, culpa quis beatae perspiciatis;")
+
+                    .status-card__body
+                        .status-card__actions
+                            .status-card__actions-top
+                                a.default-link(href='#') Детализация
+                                a.default-link(href='#') Выплата
+                            +button('brand', true)
+                                | пополнить счет
+
+            .cabinet-dashboard__status-scheme.status-scheme
+                .status-scheme__item
+                    .status-scheme__percent
+                        +icon('multistar', 37, 37)
+                        .status-scheme__percent-value
+                            | 5
+                            span %
+                    .status-scheme__name Новичок
+                    .status-scheme__money 20&nbsp;000&nbsp;₽
+                .status-scheme__item
+                    .status-scheme__percent
+                        +icon('multistar', 37, 37)
+                        .status-scheme__percent-value
+                            | 10
+                            span %
+                    .status-scheme__name Участник
+                    .status-scheme__money 100&nbsp;000&nbsp;₽
+
+                .status-scheme__item
+                    .status-scheme__percent
+                        +icon('multistar', 37, 37)
+                        .status-scheme__percent-value
+                            | 15
+                            span %
+                    .status-scheme__name Профи
+                    .status-scheme__money 200&nbsp;000&nbsp;₽
+                    .status-scheme__money-to-go 242&nbsp;750&nbsp;₽
+                .status-scheme__item.status-scheme__item--not-reached
+                    .status-scheme__percent
+                        +icon('multistar', 37, 37)
+                        .status-scheme__percent-value
+                            | 20
+                            span %
+                    .status-scheme__name Эксперт
+                    .status-scheme__money 500&nbsp;000&nbsp;₽
+            .cabinet-dashboard__sale-status
+                .sale-status-card
+                    .sale-status-card__title покупки
+                    .sale-status-card__part
+                        .sale-status-card__row
+                            .sale-status-card__row-num 2
+                            .sale-status-card__row-description
+                                .sale-status-card__row-title Вещи в резерве:
+                                .sale-status-card__row-text
+                                    | Ближайший истекает
+                                    .sale-status-card__row-date 19:00 20.02.2024
+                        .sale-status-card__row
+                            .sale-status-card__row-num 1
+                            .sale-status-card__row-description
+                                .sale-status-card__row-title Активный заказ:
+                                .sale-status-card__row-text
+                                    | Срок доставки:
+                                    .sale-status-card__row-date 20.02.2024
+                    .sale-status-card__part
+                        .sale-status-card__row.no-gap.align-items-baseline
+                            .sale-status-card__row-title Выкуплено вещей:
+                            .sale-status-card__row-num.sm 23
+                        .sale-status-card__row.no-gap.align-items-baseline
+                            .sale-status-card__row-title На общую сумму:
+                            .sale-status-card__row-num.sm 242&nbsp;750&nbsp;₽
+                        .sale-status-card__row.no-gap.align-items-baseline
+                            .sale-status-card__row-title Процент выкупа:
+                            .d-flex.align-items-center
+                                .sale-status-card__row-num.sm 90%
+                                .sale-status-card__label
+                                    | Отличный
+                                    +icon('info', 14, 14)(data-uk-tooltip="title: Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium ipsum similique rem deserunt iusto, culpa quis beatae perspiciatis;")
+                .sale-status-card
+                    .sale-status-card__title продажи
+                    .sale-status-card__part
+                        .sale-status-card__row
+                            .sale-status-card__row-num 8
+                            .sale-status-card__row-description
+                                .sale-status-card__row-title В резерве у покупателей:
+                                .sale-status-card__row-text
+                                    | Ближайший истекает
+                                    .sale-status-card__row-date 19:00 20.02.2024
+                        .sale-status-card__row
+                            .sale-status-card__row-num 5
+                            .sale-status-card__row-description
+                                .sale-status-card__row-title Вещи на складе:
+                                .sale-status-card__row-text
+                                    | Процент за хранение:
+                                    .sale-status-card__row-date 850 ₽
+                    .sale-status-card__part
+                        .sale-status-card__row.no-gap.align-items-baseline
+                            .sale-status-card__row-title Продано вещей:
+                            .sale-status-card__row-num.sm 49
+                        .sale-status-card__row.no-gap.align-items-baseline
+                            .sale-status-card__row-title На общую сумму:
+                            .sale-status-card__row-num.sm 1&nbsp;560&nbsp;750&nbsp;₽
+                        .sale-status-card__row.no-gap.align-items-baseline
+                            .sale-status-card__row-title Процент выкупа:
+                            .d-flex.align-items-center
+                                .sale-status-card__row-num.sm 50%
+                                .sale-status-card__label
+                                    | Нормальный
+                                    +icon('info', 14, 14)(data-uk-tooltip="title: Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium ipsum similique rem deserunt iusto, culpa quis beatae perspiciatis;")
+            .cabinet-dashboard__sale-detalization
+                .sale-detalization
+                    .sale-detalization__header
+                        +icon('coins-2', 20, 18)
+                        | детализация по лицевому счету
+                    .sale-detalization__table-wrap
+                        table.sale-detalization__table
+                            thead.sale-detalization__table-thead
+                                tr.sale-detalization__table-row
+                                    td.sale-detalization__table-cell Сумма
+                                    td.sale-detalization__table-cell Тип операции
+                                    td.sale-detalization__table-cell Остаток на счете
+                                    td.sale-detalization__table-cell Дата
+                            tbody
+                                tr.sale-detalization__table-row
+                                    td.sale-detalization__table-cell
+                                        .table-badge.table-badge--incoming
+                                        | 15 000 ₽
+
+                                    td.sale-detalization__table-cell Пополнение баланса ЛС
+                                    td.sale-detalization__table-cell 23 700 ₽
+                                    td.sale-detalization__table-cell 16 февраля 2023
+                                tr.sale-detalization__table-row
+                                    td.sale-detalization__table-cell
+                                        .table-badge.table-badge--leaving
+                                        | 2 000 ₽
+
+                                    td.sale-detalization__table-cell Оплата доставки
+                                    td.sale-detalization__table-cell 8 700 ₽
+                                    td.sale-detalization__table-cell 16 февраля 2023
+                                tr.sale-detalization__table-row
+                                    td.sale-detalization__table-cell
+                                        .table-badge.table-badge--leaving
+                                        | 28 300 ₽
+
+                                    td.sale-detalization__table-cell Оплата заказа № 256-236
+                                    td.sale-detalization__table-cell 10 700 ₽
+                                    td.sale-detalization__table-cell 16 февраля 2023
+                                tr.sale-detalization__table-row
+                                    td.sale-detalization__table-cell
+                                        .table-badge.table-badge--incoming
+                                        | 10 000 ₽
+
+                                    td.sale-detalization__table-cell Пополнение баланса ЛС
+                                    td.sale-detalization__table-cell 39 700 ₽
+                                    td.sale-detalization__table-cell 16 февраля 2023

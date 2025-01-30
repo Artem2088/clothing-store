@@ -1,0 +1,152 @@
+include ../mixins/_form-inputs
+
+div#category(data-uk-offcanvas='flip: true; overlay: true')
+    .d-none.d-lg-block.uk-offcanvas-bar.filter-category
+        .filter-category__wrapper
+            .filter-category__header.filter-header
+                button(type='button' class='filter-header__back' data-uk-icon="arrow-left")
+                button(type='button' class='filter-header__reset')= 'Сбросить всё'
+                button(type='button' data-uk-close).uk-offcanvas-close.filter-header__close
+                    +image('close-search.svg', 30, 30, '')
+            .filter-body
+                h3.filter-body__title= 'КАТЕГОРИЯ'
+                ul.filter-body__lists
+                    each item in ['Одежда', 'Обувь', 'Сумки', 'Аксессуары']
+                        li.filter-body__item
+                            if (item == 'Обувь')
+                                a(href="#category-shoues" class='default-link active filter-body__link' data-uk-toggle)= item
+                                +image('arrow-right.svg', 10, 16, 'filter-body__image')
+                                .filter-body__qty-container.quantity-found
+                                    span.quantity-found__span 8
+                            else
+                                a(href="#" class='default-link filter-body__link')= item
+                                +image('arrow-right.svg', 10, 16, 'filter-body__image')
+            .filter-footer
+                a(href="#" class='link-button filter-footer__button') Показать&nbsp;-
+                    span.filter-footer__quantity &nbsp;256
+div#category-shoues(data-uk-offcanvas='flip: true; overlay: true')
+    .d-none.d-lg-block.uk-offcanvas-bar.filter-category
+        .filter-category__wrapper
+            .filter-category__header.filter-header
+                button(type='button' class='filter-header__back' data-uk-icon="arrow-left")
+                button(type='button' class='filter-header__reset')= 'Сбросить всё'
+                button(type='button' data-uk-close).uk-offcanvas-close.filter-header__close
+                    +image('close-search.svg', 30, 30, '')
+            .filter-body.filter-body-selected
+                h3.filter-body__title= 'Обувь'
+                ul.filter-body__lists
+                    each item in ['Ботинки', 'Туфли', 'Кроссовки и кеды']
+                        li.filter-body__item
+                            if (item == 'Туфли')
+                                a(href="#" class='default-link active filter-body__link')= item
+                                +image('arrow-right.svg', 10, 16, 'filter-body__image')
+                                .filter-body__qty-container.quantity-found
+                                    span.quantity-found__span 6
+                            else
+                                a(href="#" class='default-link filter-body__link')= item
+                                +image('arrow-right.svg', 10, 16, 'filter-body__image')
+                    each itemSelectedShoes, index in {'Мокасины': 'loafers', 'Эспадрильи': 'espadrilles', 'Резиновая обувь': 'rubber-shoes', 'Сабо': 'clogs', 'Сандалии': 'sandals', 'Сапоги': 'boots', 'Угги': 'ugg-boots'}
+                        li.filter-body__item.filter-body-selected__item
+                            +inputCheckbox(index, itemSelectedShoes, itemSelectedShoes, false)
+            .filter-footer
+                a(href="#" class='link-button filter-footer__button') Показать&nbsp;-
+                    span.filter-footer__quantity &nbsp;256
+div#brend(data-uk-offcanvas='flip: true; overlay: true')
+    .d-none.d-lg-block.uk-offcanvas-bar.filter-category
+        .filter-category__wrapper
+            .filter-category__header.filter-header
+                button(type='button' class='filter-header__back' data-uk-icon="arrow-left")
+                button(type='button' class='filter-header__reset')= 'Сбросить всё'
+                button(type='button' data-uk-close).uk-offcanvas-close.filter-header__close
+                    +image('close-search.svg', 30, 30, '')
+            .filter-body.filter-body-brand.filter-body-selected
+                h3.filter-body__title= 'БРЕНД'
+                input(type='search' style='background-image: url("./images/search.svg")' id='brand-search' class='uk-input filter-body-brand__input' placeholder='Быстрый поиск по названию')
+                .filter-body__lists.filter-body-brand__container
+                    span.filter-body__title.filter-body-brand__title= 'ТОП БРЕНДЫ'
+                    ul.filter-body-brand__lists
+                        each itemSelectedTopBrand, index in {'Alexander Mcqueen': 'alexander-mcqueen', 'Brioni': 'brioni', 'Chanel': 'chanel', 'Dolce & Gabbana': 'dolce-&-gabbana', 'Fendi': 'fendi'}
+                            li.filter-body__item.filter-body-selected__item
+                                +inputCheckbox(index, itemSelectedTopBrand, itemSelectedTopBrand, false)
+                .filter-body__lists.filter-body-brand__container
+                    span.filter-body__title.filter-body-brand__title= 'ВСЕ БРЕНДЫ'
+                    ul.filter-body-brand__lists
+                        each itemSelectedAllBrands, index in {'Alexander Wang': 'alexander-wang', 'Alberta Ferretti': 'alberta-ferretti', 'Balenciaga': 'balenciaga', 'Christian Louboutin': 'christian-louboutin', 'Emporio Armani': 'emporio-armani'}
+                            li.filter-body__item.filter-body-selected__item
+                                +inputCheckbox(index, itemSelectedAllBrands, itemSelectedAllBrands, false)
+            .filter-footer
+                a(href="#" class='link-button filter-footer__button') Показать&nbsp;-
+                    span.filter-footer__quantity &nbsp;256
+div#size(data-uk-offcanvas='flip: true; overlay: true')
+    .d-none.d-lg-block.uk-offcanvas-bar.filter-category
+        .filter-category__wrapper
+            .filter-category__header.filter-header
+                button(type='button' class='filter-header__back' data-uk-icon="arrow-left")
+                button(type='button' class='filter-header__reset')= 'Сбросить всё'
+                button(type='button' data-uk-close).uk-offcanvas-close.filter-header__close
+                    +image('close-search.svg', 30, 30, '')
+            .filter-body.filter-body-brand.filter-body-selected
+                h3.filter-body__title= 'Размер'
+                .filter-body__lists.filter-body-brand__container
+                    ul.filter-body-brand__lists
+                        each itemRadio in ['XS', 'S', 'M', 'L', 'XL']
+                            li.filter-body__item.filter-body-selected__item
+                                +inputCheckbox(itemRadio, itemRadio, itemRadio, false)
+            .filter-footer
+                a(href="#" class='link-button filter-footer__button') Показать&nbsp;-
+                    span.filter-footer__quantity &nbsp;256
+div#filter(data-uk-offcanvas='flip: true; overlay: true')
+    .uk-offcanvas-bar.filter-category
+        .filter-category__wrapper
+            .filter-category__header.filter-header
+                button(type='button' class='filter-header__reset')= 'Сбросить всё'
+                button(type='button' data-uk-close).uk-offcanvas-close.filter-header__close
+                    +image('close-search.svg', 30, 30, '')
+            .filter-body.filter-body-sort.filter-body-brand
+                h3.filter-body__title.filter-body-sort__title= 'сортировка'
+                ul.filter-body__lists.filter-body-sort__lists
+                    each itemRadioSmall in ['Сначала новинки', 'Сначала Sale', 'По возрастанию цены', 'По убыванию цены']
+                        li.filter-body__item.filter-body-sort__item
+                            +inputRadioSmall(itemRadioSmall, itemRadioSmall, itemRadioSmall, false)
+                .filter-body-sort__container
+                    span.filter-body__title.filter-body-brand__title.filter-body-sort__title= 'Каталог'
+                    ul.filter-body__lists
+                        each itemRadioGender in ['Женское', 'Мужское', 'Детское']
+                            li.filter-body__item.filter-body-sort__item
+                                +inputRadioSmall(itemRadioGender, itemRadioGender, itemRadioGender, false)
+                .filter-body-sort__container
+                    span.filter-body__title.filter-body-brand__title.filter-body-sort__title= 'Фильтры'
+                    ul.filter-body__lists
+                        each value, index in {'Категория': 'category', 'Бренд': 'brend', 'Размер': 'size', 'Цена': 'price'}
+                            li.filter-body__item
+                                a(href="#" + value class='default-link filter-body__link' data-uk-toggle)= index
+                                +image('arrow-right.svg', 10, 16, 'filter-body__image')
+            .filter-footer
+                a(href="#filter-selected" class='link-button filter-footer__button' data-uk-toggle) Показать&nbsp;-
+                    span.filter-footer__quantity &nbsp;256
+div#filter-selected(data-uk-offcanvas='flip: true; overlay: true')
+    .uk-offcanvas-bar.filter-category
+        .filter-category__wrapper
+            .filter-category__header.filter-header
+                button(type='button' class='filter-header__reset')= 'Сбросить всё'
+                button(type='button' data-uk-close).uk-offcanvas-close.filter-header__close
+                    +image('close-search.svg', 30, 30, '')
+            .filter-body.filter-body-sort.filter-body-brand
+                h3.filter-body__title= 'сортировка'
+                ul.filter-body__lists.filter-body-sort__lists
+                    each itemRadioSmall in ['Сначала новинки', 'Сначала Sale', 'По возрастанию цены', 'По убыванию цены']
+                        li.filter-body__item.filter-body-sort__item
+                            +inputRadioSmall(itemRadioSmall, itemRadioSmall, itemRadioSmall, false)
+                .pt-5.filter-body-sort__container
+                    span.filter-body__title.filter-body-brand__title= 'Фильтры'
+                    ul.filter-body__lists
+                        each value, index in {'Категория': 'category', 'Бренд': 'brend', 'Размер': 'size', 'Цена': 'price', 'Цвет': 'color', 'Материал': 'material', 'Местоположение': 'location'}
+                            li.filter-body__item
+                                a(href="#" + value class='default-link filter-body__link' data-uk-toggle)= index
+                                +image('arrow-right.svg', 10, 16, 'filter-body__image')
+            .filter-footer
+                a(href="#" class='link-button filter-footer__button') Показать&nbsp;-
+                    span.filter-footer__quantity &nbsp;256
+
+
+

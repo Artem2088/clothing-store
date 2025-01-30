@@ -1,0 +1,13 @@
+.title {
+    color: $color-dark-text;
+    font-family: $font-family-cormorant-unicase;
+    font-size: rem(32px);
+    line-height: rem(39px);
+    letter-spacing: 0px;
+
+    @media (max-width: 768px) {
+        font-size: rem(20px);
+        text-align: center;
+        line-height: normal;
+    }
+}

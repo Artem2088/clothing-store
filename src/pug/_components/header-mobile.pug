@@ -1,0 +1,27 @@
+include ../mixins/_image
+include ../mixins/_link-button
+
+
+.d-flex.d-lg-none.px-0.header-main.header-mobile
+    .header-mobile__wrapp
+        button(data-uk-toggle="target: #mobile-menu" type="button").header-mobile__button-menu
+            +image('mobile-menu.svg', 20, 13, 'header-mobile__button')
+            +image('close-icon.svg', 20, 20, 'header-mobile__button header-mobile__button_close d-none')
+        .header-mobile__logo-container
+            a(href='/')
+                +image('logo.svg', 155, 18,'header-mobile__logo')
+        ul.header-main__lists-office
+            li.d-none.d-lg-flex.header-main__item-office
+                a(href="#" data-uk-toggle="target: #profile-sidebar")
+                    +image('user-image.svg', 20, 20, '')
+            li.header-main__item-office
+                button(type='button' data-user='global-search' class='header-main__button')
+                    +image('magnifier-image.svg', 20, 20, '')
+            li.d-none.d-lg-flex.header-main__item-office
+                button(type='button' data-user='' class='header-main__button')
+                    +image('favourites-image.svg', 20, 20, '')
+            li.header-main__item-office
+                a(href="#" data-uk-toggle="target: #cart-sidebar")
+                    +image('basket-image.svg', 20, 20,  '')
+    include ./mobile-nav
+

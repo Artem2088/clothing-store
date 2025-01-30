@@ -1,0 +1,234 @@
+.current {
+    display: flex;
+    justify-content: center;
+    &__wrapp {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+
+        &:hover {
+            outline: rem(20px) solid rgb(255, 255, 255);
+            box-shadow: 0px rem(15px) rem(40px) 0px rgba(0, 0, 0, 0.35);
+            background: rgb(255, 255, 255);
+            max-height: rem(570px);
+            z-index: 2;
+
+            @media (max-width: 991px) {
+                outline: none;
+                box-shadow: none;
+                cursor: grab;
+            }
+        }
+
+        &:hover .current__item-img_sold {
+            opacity: 1;
+        }
+
+        &:hover .current__item-type_sold,
+        &:hover .current__item-title_sold,
+        &:hover .current__item-price-current_sold {
+            color: $color-dark-text;
+        }
+
+        &:hover .current__hover-btn-wrapp {
+            position: absolute;
+            top: 99%;
+            display: block;
+            width: calc(100% - -40px);
+            left: -20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 17px 30px -5px rgba(0, 0, 0, 0.35);
+            background: rgb(255, 255, 255);
+            z-index: -1;
+
+            @media (max-width: 991px) {
+                visibility: hidden;
+            }
+        }
+    }
+    &__tags-wrap{
+        display: flex;
+        justify-content: space-between;
+        color: $color-dark-text;
+        &_empty {
+            padding-top: rem(6px);
+            justify-content: end;
+        }
+    }
+    &__tags{
+        display: block;
+        padding: rem(6px) rem(15px);
+        background-color: $color-baner-woman;
+        font-family: $font-family-cormorant-medium;
+        font-size: rem(17px);
+
+        @media (max-width: 991px) {
+            font-size: rem(14px);
+        }
+
+        &_sold {
+            background-color: $color-sold;
+        }
+    }
+    &__like-wrap{
+        display: flex;
+        gap: rem(5px);
+        align-items: center;
+        justify-content: center;
+    }
+    &__like-btn-img {
+        width: 100%;
+        @media (max-width: 768px) {
+            max-width: rem(17px);
+        }
+    }
+    &__item-like span {
+        line-height: 0.857;
+
+        @media (max-width: 768px) {
+            font-size: rem(13px);
+            padding-left: rem(5px);
+        }
+    }
+    &__item-title{
+        font-family: $font-family-cormorant;
+        font-size: rem(22px);
+        line-height: 1.227;
+
+        &_sold {
+            color:$color-text-gray;
+        }
+
+        @media (max-width: 768px) {
+            font-size: rem(18px);
+        }
+    }
+    &__item-type{
+        line-height: 1.174;
+    }
+    &__item-info{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: $color-dark-text;
+        position: relative;
+        background-color: $color-ligth-text;
+    }
+    &__item-condition{
+        color:$color-text-gray;
+        margin: rem(11px) rem(13px);
+        line-height: rem(25px);
+
+        @media (max-width: 768px) {
+            margin-inline: 0;
+            font-size: rem(12px);
+            line-height: rem(25px);
+        }
+    }
+    &__item-price{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: rem(10px);
+    }
+    &__item-price-current{
+        font-family: $font-family-base-medium;
+        font-size: rem(16px);
+        line-height: 1.17375;
+
+        &_sold {
+            color:$color-text-gray;
+        }
+
+        @media (max-width: 768px) {
+            font-size: rem(14px);
+        }
+    }
+    &__item-price-old{
+        font-family: $font-family-base;
+        font-size: rem(16px);
+        color: $color-price-old;
+        text-decoration: line-through;
+        line-height: 1.17375;
+
+        @media (max-width: 768px) {
+            font-size: rem(14px);
+        }
+    }
+    &__item-type {
+
+        &_sold {
+            color:$color-text-gray;
+        }
+
+        @media (max-width: 768px) {
+            font-size: rem(12px);
+        }
+    }
+
+    &__item-img {
+        width: 100%;
+        object-fit: contain;
+
+        &_sold {
+            opacity: .2;
+        }
+    }
+
+    &__hover-button{
+        padding: rem(8px) rem(34px);
+        margin: rem(40px) 0 rem(49px);
+
+        @media (max-width: 768px) {
+            padding: rem(8px) rem(14px);
+            margin: rem(17px) 0 rem(19px);
+        }
+    }
+    &__hover-btn-wrapp{
+        display: none;
+    }
+    &__like-btn svg {
+        max-width: rem(22px);
+        width: 100%;
+        aspect-ratio: 1;
+
+        @media (max-width: 991px) {
+            max-width: rem(17px);
+        }
+    }
+}
+.no-hover-effect {
+    @media (max-width: 320px) {
+        width: rem(600px);
+    }
+}
+
+.no-hover-effect .current {
+    outline: none;
+    box-shadow: none;
+    background: rgb(255, 255, 255);
+    max-height: inherit;
+    z-index: 0;
+    cursor: grab;
+
+    @media (max-width: 991px) {
+        min-width: rem(145px);
+    }
+
+    @media (max-width: 320px) {
+        max-height: rem(316px);
+    }
+
+}
+
+.no-hover-effect .current__wrapp:hover .current__hover-btn-wrapp{
+    display: none;
+}
+
+.uk-offcanvas-overlay::before {
+    background: $color-overlay;
+}

@@ -1,0 +1,234 @@
+.uk-offcanvas-bar.filter-category * {
+    color: $color-dark-text;
+}
+
+.uk-offcanvas-bar.filter-category {
+    width: rem(500px);
+    padding-top: rem(47px);
+    padding-inline: rem(50px);
+    box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.45);
+
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+}
+
+.filter-category__wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    max-height: rem(890px);
+}
+
+.filter-header {
+    position: relative;
+
+    @media (max-width: 768px) {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__reset {
+        color: $color-text-gray !important;
+        padding-left: rem(144px);
+
+        @media (max-width: 768px) {
+            padding-left: 0;
+        }
+    }
+
+    &__close svg {
+        width: 0;
+    }
+
+    &__close img {
+        max-width: rem(30px);
+        width: 100%;
+        aspect-ratio: 1;
+
+        @media (max-width: 991px) {
+            width: rem(20px);
+        }
+    }
+}
+
+.filter-header .uk-offcanvas-close {
+    top: rem(-12px);
+    right: rem(-20px);
+
+    @media (max-width: 991px) {
+        top: rem(-34px);
+        right: rem(-36px);
+    }
+}
+
+.filter-body {
+    margin-bottom: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    &__title {
+        font-family: $font-family-cormorant-unicase-bold;
+        font-size: rem(18px);
+        line-height: 1.21;
+        padding-top: rem(38px);
+        text-transform: uppercase;
+        letter-spacing: rem(1px);
+    }
+
+    &__lists {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        flex-direction: column;
+        padding-top: rem(33px);
+        row-gap: rem(13px);
+    }
+
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding-bottom: rem(10px);
+        border-bottom: 1px solid $color-border-breadcrumbs;
+        position: relative;
+    }
+
+    &__link {
+        width: 100%;
+    }
+
+    &__link:hover {
+        opacity: .7;
+        color: inherit !important;
+    }
+
+    &__qty-container {
+        width: rem(24px);
+        height: rem(24px);
+        border-radius: 50%;
+        background-color: $color-filter-found;
+    }
+}
+
+.quantity-found {
+    position: absolute;
+    top: 0;
+    right: 31px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__span {
+        font-size: rem(11px);
+        color: $color-tab;
+    }
+}
+
+.filter-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: rem(45px);
+
+    &__button {
+        padding-block: rem(17px);
+        padding-inline: rem(70.5px);
+        color: $color-ligth-text !important;
+        font-family: $font-family-base-medium;
+    }
+
+    &__quantity {
+        color: $color-gray-span !important;
+    }
+}
+
+.filter-body-selected {
+    &__item .form-field {
+        display: flex;
+        padding: 0;
+    }
+
+    &__item .form-field__label {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__item .form-field__label span:first-child {
+        order: 1;
+    }
+}
+
+.filter-body-brand {
+
+    &__input {
+        background-repeat: no-repeat;
+        background-position: right;
+        border-bottom: 1px solid;
+        border-bottom-color: $color-login-link-info !important;
+        padding-inline: 0;
+        margin-top: rem(25px);
+    }
+
+    &__container {
+        padding-top: rem(50px);
+    }
+
+    &__lists {
+        display: flex;
+        flex-direction: column;
+        row-gap: rem(12px);
+    }
+
+    &__title {
+        padding-top: 0;
+        padding-bottom: rem(20px);
+    }
+}
+
+.filter-body-brand__input::placeholder,
+.filter-body-brand__input:focus {
+    color: $color-btn !important;
+}
+
+.filter-body-sort {
+    &__container{
+        padding-top: rem(37px);
+
+        @media (max-width: 991px) {
+            padding-top: rem(25px);
+        }
+    }
+    &__lists {
+        padding-top: rem(37px);
+
+        @media (max-width: 991px) {
+            padding-top: rem(25px);
+        }
+    }
+
+    &__item .form-field__label {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    &__item .form-field__title {
+        font-size: rem(14px);
+    }
+
+    &__title {
+        @media (max-width: 991px) {
+            font-size: 16px;
+            padding-bottom: 0;
+        }
+    }
+}

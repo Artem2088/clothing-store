@@ -1,0 +1,30 @@
+.mobile-nav{
+    width: 100%;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-top: rem(20px);
+    padding-bottom: rem(3px);
+
+    &__lists{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: 100%;
+        align-items: baseline;
+        gap: rem(20px);
+        column-gap: rem(6px);
+    }
+    &__link-tabs{
+        font-family: $font-family-base-medium;
+        font-size: rem(12px);
+        color: $color-dark-text;
+        padding: rem(8px) rem(21px);
+        background-color: $color-card-mobile;
+        display: block;
+        text-align: center;
+
+        &_men{
+            background-color: $color-baner-woman;
+        }
+    }
+}

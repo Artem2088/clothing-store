@@ -1,0 +1,9 @@
+#trade-in-group-2(data-uk-modal='')
+    .uk-modal-dialog.trade-in-modal
+        button.uk-modal-close-default.modal-close-default(type='button')
+            +icon('close-round', 30, 30)
+        .trade-in-modal__header
+            h2.trade-in-modal__title Начать сделку trade-in
+        p.trade-in-modal__subtext Сообщите нам, пожалуйста, предварительную информацию о вещи, которую хотите продать в зачет стоимости покупаемой.
+        .trade-in-modal__body
+            include ../forms/trade-in-form

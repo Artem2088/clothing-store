@@ -1,0 +1,44 @@
+@charset "UTF-8";
+@use 'sass:math';
+@import '../libs/css/filepond.min.css';
+@import '../libs/css/normalize.css';
+@import '../libs/css/bootstrap-grid.min.css';
+@import '../libs/css/chosen.min.css';
+@import '../libs/css/uikit.min.css';
+
+// abstract
+@import 'abstracts/functions';
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'abstracts/variables', 'abstracts/functions';
+
+// base
+@import 'base/_base', 'base/fonts';
+
+// forms
+@import 'forms/subscribe-form', 'forms/trade-in-form',
+    'forms/cabinet-profile-form';
+
+// mixins
+@import 'mixins/link-button', 'mixins/current';
+@import 'mixins/title', 'mixins/link-button', 'mixins/current',
+    'mixins/breadcrumbs', 'mixins/pagination', 'mixins/filterCatalog',
+    'mixins/form-popup-error.scss';
+
+// modals
+@import 'modals/mobile-menu', 'modals/trade-in-modal', 'modals/order-done';
+
+// components
+@import 'components/svg-icons', 'components/buttons', 'components/card-banner',
+    'components/header', 'components/footer', 'components/contacts&logo',
+    'components/alphabet', 'components/legal-info', 'components/mobile-nav',
+    'components/modals', 'components/form-inputs', 'components/cart-sidebar',
+    'components/cart-item', 'components/banner', 'components/profile-user-card',
+    'components/profile-sidebar', 'components/page-filter', 'components/mobile-under-menu',
+    'components/event';
+
+// pages
+@import 'pages/main', 'pages/catalog', 'pages/catalog-card';
+@import 'pages/main', 'pages/catalog', 'pages/catalog-category',
+    'pages/page-brands', 'pages/page-brand-Bottega_Veneta', 'pages/search-list',
+    'pages/cart', 'pages/cabinet-dashboard', 'pages/static-login';

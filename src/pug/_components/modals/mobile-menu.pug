@@ -1,0 +1,19 @@
+include ../../mixins/_link-button
+include ../../mixins/_image
+
+#mobile-menu(data-uk-offcanvas).d-lg-none.mobile-menu
+    ul.mobile-menu__lists
+        each value, index in {'НОВИНКИ': '#', 'SALE': '#', 'ОДЕЖДА': '#', 'ОБУВЬ': '#', 'СУМКИ': '#', 'АКСЕССУАРЫ': '#', 'LOOK': '#', 'БРЕНДЫ': '#', 'SEARCH LIST': '#',}
+                li.mobile-menu__item
+                    a.mobile-menu__link(href=`${value}`)= index
+                    +image('arrow-right.svg', 10, 16, 'mobile-menu__image')
+        li
+            +linkButton('#', 'продать товар', 'mobile-menu__button-sell')
+    ul.mobile-menu__lists.mobile-menu__lists-buy
+        each val, i in {'как продать': '#', 'Информация': '#'}
+            li.mobile-menu__item.mobile-menu__item-buy
+                a.mobile-menu__link.mobile-menu__link-buy(href=`${val}`)= i
+                +image('arrow-right.svg', 10, 16, 'mobile-menu__image')
+    .mobile-menu__wrapper
+        include ../contacts&logo
+        include ../legal-information

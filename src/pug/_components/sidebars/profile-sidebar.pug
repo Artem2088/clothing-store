@@ -1,0 +1,8 @@
+#profile-sidebar.profile-sidebar(data-uk-offcanvas='flip: true; mode: slide;  overlay: true')
+  .uk-offcanvas-bar
+    button.uk-offcanvas-close.modal-close-default(type='button')
+        +icon('close-round', 30, 30)
+    .profile-sidebar__header
+        | личный кабинет
+    .profile-sidebar__body
+        include ../profile-user-card-in-sidebar

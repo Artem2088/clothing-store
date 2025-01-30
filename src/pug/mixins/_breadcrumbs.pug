@@ -1,0 +1,21 @@
+mixin breadcrumbs(count, _className, ...items)
+    div(class=`d-none d-lg-flex breadcrumb ${_className}`)
+        <ul class="breadcrumb__lists">
+            each item in items
+                li
+                    if item !== items[items.length - 1]
+                        a(href="#" class='breadcrumb__link breadcrumb__link-desc') #{item}
+                    else
+                        span.breadcrumb__link.breadcrumb__link-desc= item
+        </ul>
+        .breadcrumb__count
+            span.breadcrumb__count-span= count
+    div(class=`d-flex d-lg-none breadcrumb ${_className}`)
+        <ul class="breadcrumb__lists">
+            each item in items
+                li
+                    if item === items[items.length - 2]
+                        a(href="#" class='breadcrumb__link breadcrumb__link-mobile') #{item}
+        </ul>
+        .breadcrumb__count
+            span.breadcrumb__count-span= count

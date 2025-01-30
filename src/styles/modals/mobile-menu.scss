@@ -1,0 +1,47 @@
+.mobile-menu {
+    width: 100vw;
+    min-height: 100vh;
+    padding-bottom: rem(109px);
+    background-color: $color-ligth-text;
+    overflow-y: auto;
+    z-index: 800;
+    padding-top: rem(100px);
+
+
+    &__lists{
+        display: flex;
+        flex-direction: column;
+        padding-inline: rem(20px);
+        gap: rem(12px);
+        padding-top: rem(18px);
+        padding-bottom: rem(30px);
+    }
+    &__item {
+        display: flex;
+        align-items: baseline;
+        border-bottom: rem(1px) solid $color-footer-line;
+    }
+    &__link {
+        font-family: $font-family-base-bold;
+        text-transform: uppercase;
+        font-size: rem(12px);
+        color: $color-tab;
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding-bottom: rem(6px);
+    }
+    &__button-sell {
+        margin-top: rem(7px);
+        padding: rem(13px) rem(78.5px);
+    }
+    &__lists-buy {
+        padding-top: rem(9px);
+        padding-bottom: rem(21px);
+    }
+    &__wrapper {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: rem(51px);
+    }
+}

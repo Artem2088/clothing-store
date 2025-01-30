@@ -1,0 +1,40 @@
+include ../../../mixins/_link-button
+
+div(data-modal= 'brands' class='modal')
+    .container.container-base.modal__wrapper
+        .modal__side-links.side-links.side-links_brands
+            ul.side-links__lists
+                each menuItem, i in menuBrands
+                    li.side-links__item
+                        if (menuItem.title == '')
+                            span.d-none.side-links__title= menuItem.title
+                        else
+                            span.side-links__title= menuItem.title
+                        if (menuItem.navLinks.length == 0)
+                            ul.d-none.side-links__navigation-lists
+                                each navItem in menuItem.navLinks
+                                    li
+                                        a(href="#", class='side-links__navigation-link')= navItem
+                        else
+                            ul.side-links__navigation-lists
+                                each navItem in menuItem.navLinks
+                                    li
+                                        a(href="#", class='side-links__navigation-link')= navItem
+                        if (menuItem.title == '' && menuItem.navLinks.length == 0)
+                            ul.side-links__another-lists.side-links__another-lists_no-title
+                                each linkItem in menuItem.anotherLink
+                                    li
+                                        a(href="", class='side-links__another-link')= linkItem
+                        else
+                            ul.side-links__another-lists
+                                each linkItem in menuItem.anotherLink
+                                    li
+                                        a(href="", class='side-links__another-link')= linkItem
+                        a(href="#", class='side-links__navigation-link side-links__additional')= menuItem.additionalLink
+        .modal__side-image.side-image
+            .side-image__conatiner
+                img(src="../../../../images/chapter-women.jpg", alt="banner")
+                .side-image__banner
+                    .side-image__title.side-image__title_sale= 'Неделя CHANEL'
+                    p.px-5.side-image__description= 'Лучшие предложения бренда'
+                    +linkButton('#', 'купить', 'side-image__button')

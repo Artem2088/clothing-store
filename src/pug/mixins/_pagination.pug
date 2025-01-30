@@ -1,0 +1,18 @@
+mixin pagination(count)
+    .pagination
+        ul.uk-pagination.pagination__lists
+            li
+                a(href="#" class="pagination__link")= 1
+            li
+                span(aria-current="page" class="pagination__link uk-active")= 2
+            li
+                a(href="#" class="pagination__link")= 3
+            li.uk-disabled
+                span(aria-current="page" class="pagination__link")= "..."
+            li
+                a(href="#" class="pagination__link")= `${count}`
+            li
+                a(href="#" class="d-none d-md-block pagination__link-next")= 'Вперед'
+            li
+                a(href="#")
+                    img(src="../../images/arrow-small-rgt.svg" alt='вперед' class='d-block d-md-none')

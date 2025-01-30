@@ -1,0 +1,95 @@
+.profile-user-card {
+    &__header {
+        position: relative;
+    }
+    &__fio {
+        font-family: $font-family-cormorant-medium;
+        font-size: rem(28px);
+        line-height: 1.2;
+        margin-bottom: rem(23px);
+    }
+    &__money-status {
+        display: flex;
+        align-items: center;
+        gap: rem(15px);
+        margin-bottom: rem(48px);
+        & span {
+            font-family: $font-family-base-bold;
+        }
+    }
+    &__surname {
+        font-size: rem(24px);
+    }
+    &__photo-wrap {
+        width: rem(120px);
+        height: rem(120px);
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: rem(7px);
+    }
+    &__status {
+        display: flex;
+        align-items: center;
+        gap: rem(10px);
+        font-family: $font-family-base-medium;
+        font-size: rem(12px);
+        color: #767676;
+        margin-top: rem(6px);
+    }
+    &__edit-profile {
+        margin-bottom: rem(25px);
+    }
+    &--in-sidebar {
+        .profile-user-card__header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: rem(40px);
+            @include media('max', 'lg') {
+                gap: 25px;
+            }
+        }
+    }
+    &__add-foto {
+        position: absolute;
+        top: 23%;
+        left: 55%;
+    }
+
+    &__add-foto input[type='file'] {
+        opacity: 0;
+        cursor: pointer;
+        width: rem(20px);
+        height: rem(19px);
+        font-size: 0;
+        position: absolute;
+    }
+    &__add-foto:hover {
+        opacity: .7;
+    }
+    &__add-foto.profile-in-sidebar__add-foto {
+        top: 68%;
+        left: 14%;
+    }
+}
+.profile-user-links {
+    font-size: rem(14px);
+    padding-right: rem(50px);
+    &__link {
+        display: flex;
+        align-items: center;
+        gap: rem(16px);
+        color: #27282d;
+        padding: rem(11px) rem(4px);
+        transition: all 0.2s ease;
+        &.active {
+            font-family: $font-family-base-bold;
+            gap: rem(14px);
+        }
+    }
+    &__item + &__item {
+        border-top: 1px solid #dddddd;
+    }
+    &__item:hover &__link {
+        transform: translateX(10px);
+    }
+}

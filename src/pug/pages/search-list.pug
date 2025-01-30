@@ -1,0 +1,40 @@
+extends ../templates/layout
+include ../mixins/_image
+include ../mixins/_link-button
+include ../mixins/_title
+include ../mixins/_offers-card
+include ../mixins/_breadcrumbs
+include ../mixins/_pagination
+include ../mixins/_filterCatalog
+
+
+block main
+    section.section.upper.category-upper
+        .row.upper__wrapp.category-upper__wrapp
+            .col-12.col-lg-6.px-0
+                +image('search-list-img.jpg', 600, 340, 'd-block upper__image')
+                +title('h2', 'Search List', 'd-block d-lg-none upper__title upper__title_mobile')
+            .d-none.d-lg-flex.col-12.col-lg-6.mt-5.mt-lg-0.upper__rigth-block
+                +title('h2', 'Search List', 'upper__title category-upper__title')
+                p.description.upper__description Проверьте свой гардероб! Возможно там найдутся вещи, которые разыскивают наши пользователи
+    +breadcrumbs('199 товаров', 'breadcrumb-catalog-category', 'Главная',  'Мужское', 'Search List')
+    +filterCatalog('', '')
+    section.pb-0.pb-lg-4.catalog-category-grid.botega-catalog.search-list-catalog
+        ul.pb-lg-4.catalog-grid.botega-catalog-grid.search-list-catalog__grid
+            each searchItem, i in searchLists
+                +offersCard(searchItem, i)
+    +pagination(52)
+    section.section.commission.category-commission
+            +title('h2', 'Поиск брендовых вещей', 'px-4 px-lg-0')
+            .row.commission__desc-wrapp
+                p
+                    | Чем отличается одежда известных брендов от масс-маркета?
+                    | Конечно, безупречным кроем, качественными материалами и оригинальным стилем.
+                    | Регулярно обновлять гардероб в брендовых магазинах и аутлетах бывает довольно накладно, здесь на помощь придет комиссионный бутик NewLife.
+                p.d-none.js-display-block
+                    | Магазин брендовой одежды Ньюлайф стал флагманским местом,
+                    | буквально Resale store №1 в России, где можно удачно купить или выгодно продать одежду, обувь и аксессуары самых популярных марок,
+                    | включая Patrizia Pepe, Philipp Plein, Louis Vuitton, Kiton, Chanel, Abercrombie&Fitch,
+                    | Baldinini, Escada, Max Mara, Prada, Brunello Cucinelli, Dior, Fendi, Hermes, Moshino или Testoni.
+                    | Эксклюзивная особенность бутика – шубный зал, где представлены меховые изделия в идеальном состоянии.
+            +linkButton('', 'читать дальше', 'commission__link')

@@ -1,0 +1,124 @@
+.subscribe-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8.7% 1.2%;
+
+    @media (max-width: 991px) {
+        padding: rem(47px) 0 0;
+    }
+
+    &__title {
+        text-align: center;
+    }
+
+    &__form{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    &__input-wrap{
+        display: flex;
+        padding: 5% 0 5% 5%;
+        position: relative;
+        justify-content: center;
+
+        @media (max-width: 991px) {
+            padding: rem(30px) 0 rem(23px);
+        }
+    }
+
+    &__input {
+        max-width: rem(292px);
+        width: 100%;
+        border: none;
+        border-bottom: rem(1px) solid rgb(171, 171, 171);
+        padding: 0;
+        background-repeat: no-repeat;
+        background-position: 94% center;
+
+        &::placeholder {
+            font-size: rem(18px);
+            color: $color-btn;
+
+            @media (max-width: 991px) {
+                font-size: rem(14px);
+            }
+        }
+
+    }
+
+    &__input[type=email] {
+        font-size: rem(18px);
+
+        @media (max-width: 991px) {
+            font-size: rem(14px);
+        }
+    }
+
+    &__input-image {
+        position: absolute;
+        top: 33%;
+        left: 58%;
+    }
+
+    &__input-button {
+        padding: rem(8px) rem(34px);
+        margin-left: rem(10px);
+
+        @media (max-width: 991px) {
+            padding: rem(8px) rem(18px);
+        }
+    }
+
+    &__radio-wrap{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: rem(30px);
+
+        @media (max-width: 991px) {
+            column-gap: rem(25px);
+        }
+        @media (max-width: 320px) {
+            justify-content: unset;
+        }
+    }
+
+    &__radio {
+        margin-right: rem(12px);
+        border-color: $color-dark-text;
+        width: rem(18px);
+        height: rem(18px);
+
+        @media (max-width: 991px) {
+            margin-right: rem(4px);
+            width: rem(14px);
+            height: rem(14px);
+        }
+
+        &:checked {
+            background-color: $color-ligth-text;
+            border-color: $color-dark-text;
+            background: url('../../images/radio-checked.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        &:checked:focus {
+            background-color: $color-ligth-text;
+            background-color: $color-ligth-text;
+            border-color: $color-dark-text;
+            background: url('../../images/radio-checked.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+
+    &__label {
+        font-size: rem(18px);
+        @media (max-width: 991px) {
+            font-size: rem(12px);
+        }
+    }
+}

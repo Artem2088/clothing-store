@@ -1,0 +1,97 @@
+include ../../../mixins/_link-button
+include ../../../mixins/_image
+
+div(data-modal= 'global-search' class='modal modal-global-search')
+    button(type='button' class='d-none d-lg-flex modal-global-search__close-button')
+        +image('close-search.svg', 30, 30, '')
+    .container.container-base.modal__wrapper.global-search
+        button(type='button' class='d-flex d-lg-none modal-global-search__close-button')
+            +image('close-search.svg', 30, 30, '')
+        .mb-0.page-brands.global-search__input-container
+            label.subscribe-form.page-brands__search-container.global-search__container
+                input(type='search' style='background-image: url("./images/search.svg")' class='uk-input subscribe-form__input page-brands__input global-search__input')
+                span.global-search__placeholder-text= 'Что будем искать?'
+                    span(class='d-none d-lg-block' style='color: rgb(151, 151, 151);')= 'Введите запрос, например, платье Chanel'
+            +linkButton('', 'НАЙТИ', 'global-search__input-button')
+        .global-search__button-container
+            .button-side-left
+                span.button-side-left__title= 'Ищут часто'
+                ul.button-side-left__lists
+                    each linkSearch in ['Сумка Hermes', 'Босоножки Brioni', 'Chanel', 'Туфли Louboutin']
+                        li.button-side-left__item
+                            a(href='#')= linkSearch
+            .d-none.d-lg-flex.button-side-left.button-side-rigth
+                ul(class='button-side-rigth__lists' data-uk-switcher='animation: uk-animation-fade')
+                    each title, i in ['все','Женское','Мужское','детское']
+                        li.button-side-rigth__item
+                            button(type='button' class='button-side-left__title button-side-rigth__button')= title
+                .uk-switcher
+                    ul(class='button-side-left__lists button-side-rigth__links-wrap')
+                        li.button-side-rigth__links-item
+                            a(href="#")
+                                span.button-side-rigth__links-span= 'Chanel  Платье'
+                                span.button-side-rigth__links-span.button-side-rigth__links-span_found= 'вечернее Midnight Blue Dress Размер 44 РФ'
+                        li.button-side-rigth__links-item
+                            a(href="#")
+                                span.button-side-rigth__links-span= 'Chanel  Платье'
+                                span.button-side-rigth__links-span.button-side-rigth__links-span_found= 'коктейльное Pretty Lady Размер 46 РФ'
+                        li.button-side-rigth__links-item
+                            a(href="#")
+                                span.button-side-rigth__links-span= 'Chanel  Платье'
+                                span.button-side-rigth__links-span.button-side-rigth__links-span_found= 'вечернее Размер 46 РФ'
+                        li.button-side-rigth__links-item
+                            a(href="#")
+                                span.button-side-rigth__links-span= 'Chanel'
+                                span.button-side-rigth__links-span.button-side-rigth__links-span_found= 'мини-'
+                                span.button-side-rigth__links-span= 'платье'
+                                span.button-side-rigth__links-span.button-side-rigth__links-span_found= 'коктейльное Ladies Dream Размер 48 РФ'
+                        li.button-side-rigth__links-item
+                            a(href="#")
+                                span.button-side-rigth__links-span= 'Chanel  Платье'
+                                span.button-side-rigth__links-span.button-side-rigth__links-span_found= 'коктейльное Pretty Lady Размер 44 РФ'
+                    ul(class='button-side-left__lists button-side-rigth__links-wrap')
+                        li.button-side-rigth__links-item
+                            a(href="#")
+                                span.button-side-rigth__links-span= 'Chanel  Платье'
+                                span.button-side-rigth__links-span.button-side-rigth__links-span_found= 'вечернее Midnight Blue Dress Размер 44 РФ'
+                        li.button-side-rigth__links-item
+                            a(href="#")
+                                span.button-side-rigth__links-span= 'Chanel  Платье'
+                                span.button-side-rigth__links-span.button-side-rigth__links-span_found= 'коктейльное Pretty Lady Размер 46 РФ'
+                    ul(class='button-side-left__lists button-side-rigth__links-wrap')
+                        li.button-side-rigth__links-item
+                            a(href="#")
+                                span.button-side-rigth__links-span= 'Chanel  Платье'
+                                span.button-side-rigth__links-span.button-side-rigth__links-span_found= 'вечернее Midnight Blue Dress Размер 44 РФ'
+                        li.button-side-rigth__links-item
+                            a(href="#")
+                                span.button-side-rigth__links-span= 'Chanel  Платье'
+                                span.button-side-rigth__links-span.button-side-rigth__links-span_found= 'коктейльное Pretty Lady Размер 46 РФ'
+                        li.button-side-rigth__links-item
+                            a(href="#")
+                                span.button-side-rigth__links-span= 'Chanel  Платье'
+                                span.button-side-rigth__links-span.button-side-rigth__links-span_found= 'вечернее Размер 46 РФ'
+                    ul(class='button-side-left__lists button-side-rigth__links-wrap')
+                        li.button-side-rigth__links-item
+                            a(href="#")
+                                span.button-side-rigth__links-span= 'Chanel  Платье'
+                                span.button-side-rigth__links-span.button-side-rigth__links-span_found= 'коктейльное Pretty Lady Размер 46 РФ'
+                        li.button-side-rigth__links-item
+                            a(href="#")
+                                span.button-side-rigth__links-span= 'Chanel  Платье'
+                                span.button-side-rigth__links-span.button-side-rigth__links-span_found= 'вечернее Размер 46 РФ'
+                        li.button-side-rigth__links-item
+                            a(href="#")
+                                span.button-side-rigth__links-span= 'Chanel'
+                                span.button-side-rigth__links-span.button-side-rigth__links-span_found= 'мини-'
+                                span.button-side-rigth__links-span= 'платье'
+                                span.button-side-rigth__links-span.button-side-rigth__links-span_found= 'коктейльное Ladies Dream Размер 48 РФ'
+                        li.button-side-rigth__links-item
+                            a(href="#")
+                                span.button-side-rigth__links-span= 'Chanel  Платье'
+                                span.button-side-rigth__links-span.button-side-rigth__links-span_found= 'коктейльное Pretty Lady Размер 44 РФ'
+                a(href="#" class='button-side-rigth__all-found')= 'Все результаты '
+                    |&mdash;
+                    span.button-side-rigth__all-found
+                    |&nbsp; 26
+

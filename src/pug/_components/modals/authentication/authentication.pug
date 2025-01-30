@@ -1,0 +1,76 @@
+include ../../../mixins/_title
+include ../../../mixins/_form-inputs
+include ../../../mixins/_image
+include ../../../mixins/_link-button
+include ../../../mixins/_form-popup-error
+
+div#login-email.uk-flex-top.uk-modal-container(data-uk-modal)
+    .uk-modal-dialog.uk-margin-auto-vertical.login
+        .row.login__wrapper
+            .d-none.d-lg-flex.col-lg-6.px-0.login__left
+                +image('login-img.png', 640, 700, 'd-block login__image')
+            .col-12.col-lg-6.login__right
+                button(type='button' data-uk-close).uk-modal-close-default.login__close-btn
+                    +image('close-search.svg', 30, 30, '')
+                .login-container
+                    +title('h2', 'Добро пожаловать', 'login-container__title')
+                    span.login-container__title.login-container__title_span= 'в закрытый клуб newlife.moda'
+                    a(href='#login-phone' class='login-container__link' data-uk-toggle)= 'ВОЙТИ ПО ТЕЛЕФОНУ'
+                    form#form-email.login-form
+                        +inputText('E-mail', 'email', true, false, 'email')
+                        +inputText('Пароль', 'password', true, false, 'password')
+                        +formPopupError('Указанный пользователь отсутствует в системе. Проверьте адрес на наличие ошибок или:', 'Войдите по номеру телефона', 'Зарегистрируйтесь')
+                        .login-forget
+                            +inputCheckbox('Запомнить меня', 'forget-radio', 'forget-radio', true)
+                            a(href="#" class='login-forget__link')= 'Забыли пароль?'
+                        button(type='submit' class='uk-button login-container__submit')= 'войти'
+                    a(href="#register" class='login-container__link-register' data-uk-toggle)= 'Впервые у нас? Зарегистрируйтесь!'
+                    a(href="#" class='login-container__link-info')= 'Узнать подробнее о преимуществах регистрации'
+div#login-phone.uk-flex-top.uk-modal-container(data-uk-modal)
+    .uk-modal-dialog.uk-margin-auto-vertical.login
+        .row.login__wrapper
+            .d-none.d-lg-flex.col-lg-6.px-0.login__left
+                +image('login-img.png', 640, 700, 'd-block login__image')
+            .col-12.col-lg-6.login__right
+                button(type='button' data-uk-close).uk-modal-close-default.login__close-btn
+                    +image('close-search.svg', 30, 30, '')
+                .login-container
+                    +title('h2', 'Добро пожаловать', 'login-container__title')
+                    span.login-container__title.login-container__title_span= 'в закрытый клуб newlife.moda'
+                    a(href='#login-email' class='login-container__link' data-uk-toggle)= 'ВОЙТИ ПО E-MAIL'
+                    form#form-phone.d-block.login-form
+                        +inputPhone('Телефон', 'name', true)
+                        button(type='button' class='uk-button login-container__submit login-container__submit_phone')= 'ПОЛУЧИТЬ КОД'
+                    form#form-code.d-none.login-form
+                        +inputVerificationCode('Код полученный по SMS:', 'verification-code', true)
+                        a(href="#" class='login-form__resend-code')= 'Отправить код повторно'
+                            span= '00:05'
+                        button(type='submit' class='uk-button login-container__submit login-container__submit_code')= 'ввести КОД'
+                    a(href="#register" class='login-container__link-register' data-uk-toggle)= 'Впервые у нас? Зарегистрируйтесь!'
+                    a(href="#" class='login-container__link-info')= 'Узнать подробнее о преимуществах регистрации'
+div#register.uk-flex-top.uk-modal-container(data-uk-modal)
+    .uk-modal-dialog.uk-margin-auto-vertical.login.register
+        .row.login__wrapper
+            .d-none.d-lg-flex.col-lg-6.px-0.login__left.register__left
+                +image('register-img.png', 640, 700, 'd-block login__image')
+            .col-12.col-lg-6.login__right.register__right
+                button(type='button' data-uk-close).uk-modal-close-default.login__close-btn
+                    +image('close-search.svg', 30, 30, '')
+                .login-container.register-container
+                    +title('h2', 'Регистрация', 'login-container__title')
+                    span.login-container__title.login-container__title_span.register-container__title.register-container__title_span= 'в закрытом клубе newlife.moda'
+                    form#form-register.login-form.register-form
+                        +inputText('E-mail', 'email', true, false, 'email')
+                        +inputPhone('Телефон', 'name', true)
+                        +inputText('Пароль', 'password', true, false, 'password')
+                        .register-form__input-container
+                            +inputText('Ваше имя', 'name', true, false, 'text')
+                            +inputSelect('Пол', 'name', true, false,[{value: 1, name: 'Женский'}, {value: 2, name: 'Мужской'}])
+                        +inputCheckbox('Получать рассылку о наших предложениях и новинках', 'mailing-radio', 'mailing-radio', true)
+                        +formPopupError('Пользователь с указанным адресом e-mail уже зарегистрирован на нашем сайте.', 'Восстановить пароль?')
+                        button(type='button' class='uk-button login-container__submit register-container__submit')= 'Зарегистрироваться'
+                    a(href="#login-email" class='login-container__link-register' data-uk-toggle)= 'Уже есть аккаунт? Войдите!'
+
+
+
+

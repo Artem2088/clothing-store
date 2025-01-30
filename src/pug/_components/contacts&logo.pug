@@ -1,0 +1,11 @@
+include ../mixins/_image
+
+.contacts
+    a(href='/')
+        +image('logo.svg', 219, 28)
+    a(href='tel:+7 (812) 640-98-99').contacts__main-tel= '+7 (812) 640-98-99'
+    span.contacts__main-address= 'Санкт-Петербург'
+    .contacts__main-address-wrapp
+        span.contacts__main-address= 'Садовая ул. 47'
+        | &middot;
+        span.contacts__main-address= 'Садовая ул. 49'

@@ -1,0 +1,63 @@
+.catalog-card__left
+    .d-flex.justify-content-between.d-lg-none
+        .card-labels
+            span.card-labels__item.card-labels__item--promotion Sale
+            span.card-labels__item id 3456665
+        .d-flex
+            a.catalog-card__left-nav-item.catalog-card__left-nav-item--additional-link(href="#images-modal" data-uk-toggle)
+                    +icon('expand', 12, 12)
+            a.catalog-card__left-nav-item.catalog-card__left-nav-item--additional-link(href='javascript:void(0)')
+                    +icon('more-photo', 13, 13)
+
+    .catalog-card__mobile-gallery.d-block.d-lg-none.js-card-mobile-gallery
+        div(data-uk-slideshow='animation: slide;')
+            .uk-position-relative.uk-visible-toggle.uk-light(tabindex='-1')
+                .uk-slideshow-items
+                    a(href="#images-modal" data-uk-toggle)
+                        +pictureZoomSourceMobile(`catalog-card-0-lg`, 300, 300, 'Фото', 'png').catalog-card__mobile-gallery-picture
+                    a(href="#images-modal" data-uk-toggle)
+                        +pictureZoomSourceMobile(`catalog-card-1-lg`, 300, 300, 'Фото', 'png').catalog-card__mobile-gallery-picture
+                    a(href="#images-modal" data-uk-toggle)
+                        +pictureZoomSourceMobile(`catalog-card-0-lg`, 300, 300, 'Фото', 'png').catalog-card__mobile-gallery-picture
+
+                a.uk-position-center-left.uk-position-small.uk-hidden-hover(href='' data-uk-slidenav-previous='' data-uk-slideshow-item='previous')
+                a.uk-position-center-right.uk-position-small.uk-hidden-hover(href='' data-uk-slidenav-next='' data-uk-slideshow-item='next')
+            ul.uk-slideshow-nav.uk-dotnav.uk-flex-center.uk-margin
+
+    .catalog-card__desktop-gallery.d-none.d-lg-flex
+        .catalog-card__left-nav-container
+            div(data-uk-sticky="end: !.catalog-card__left-nav-container; offset: 245")
+                ul.catalog-card__left-nav.js-scroll-spy-menu(data-uk-scrollspy-nav="closest: li; scroll: true;offset: 250")
+                    - var n = 0;
+                        each item in [0,1,2,3]
+                            li.catalog-card__left-nav-item
+                                a(href=`#catalog-card-${item}`)
+                                    +pictureLazy(`catalog-card-${n++}`, 70, 75, 'Фото', 'png')
+                    li.catalog-card__left-nav-item
+                        a.catalog-card__left-nav-item.catalog-card__left-nav-item--additional-link(href='#')
+                            +icon('expand', 18, 18)
+                            span Размеры
+
+                    li.catalog-card__left-nav-item
+                        a.catalog-card__left-nav-item.catalog-card__left-nav-item--additional-link(href='#')
+                            +icon('more-photo', 20, 19)
+                            span Допфото
+
+
+        .catalog-card__big-images-wrap
+            - var n = 0;
+                each item in [0,1]
+                    .catalog-card__big-img-wrap(id=`catalog-card-${item}`)
+                        if (n==0)
+                            .catalog-card__labels.card-labels
+                                span.card-labels__item.card-labels__item--promotion Sale
+                                span.card-labels__item id 3456665
+                        +pictureZoom(`catalog-card-${n++}-lg`, 545, 560, 'Фото', 'png').catalog-card__big-img
+
+                    if (n==1)
+                        p.catalog-card__disclaimer
+                            | Это профессиональные фотографии актуального товара предоженные Newlife.moda
+            - var n = 0;
+                each item in [2,3]
+                    .catalog-card__big-img-wrap(id=`catalog-card-${item}`)
+                        +pictureZoom(`catalog-card-${n++}-lg`, 545, 560, 'Фото', 'png').catalog-card__big-img

@@ -1,0 +1,29 @@
+.cart-sidebar {
+    display: none;
+    & .uk-offcanvas-bar {
+        width: rem(700px);
+        right: rem(-700px);
+        background-color: #fff;
+        color: #000;
+        padding: rem(44px) rem(40px) rem(44px) rem(50px);
+        box-shadow: -5px 0px 10px 2px rgba(0, 0, 0, 0.2);
+        overflow-y: hidden;
+        @include media('max', 'lg') {
+            padding: 20px 10px;
+            width: 100%;
+        }
+    }
+    &__header {
+        font-family: $font-family-cormorant-unicase-bold;
+        font-size: rem(18px);
+        margin-bottom: rem(66px);
+        text-transform: uppercase;
+        padding-right: rem(40px);
+        @include media('max', 'lg') {
+            margin-bottom: 20px;
+        }
+    }
+    &__footer {
+        margin-top: rem(10px);
+    }
+}

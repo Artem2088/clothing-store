@@ -1,0 +1,50 @@
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: rem(30px) 0 rem(30px);
+    width: 100%;
+
+    &__lists {
+        column-gap: rem(10px);
+    }
+    &__link:not(.uk-active) {
+        display: flex;
+        justify-content: center;
+        color: $color-dark-text;
+        border-bottom: rem(2px) solid $color-border-breadcrumbs;
+        min-width: rem(34px);
+        width: 100%;
+        height: auto;
+        font-family: $font-family-base;
+
+        @media (max-width: 991px) {
+            font-size: rem(12px);
+        }
+    }
+    &__link {
+        display: flex;
+        justify-content: center;
+        font-family: $font-family-base-semibold;
+        color: $color-dark-text;
+        border-bottom: rem(2px) solid $color-dark-text;
+        min-width: rem(34px);
+        width: 100%;
+        height: auto;
+
+        @media (max-width: 991px) {
+            font-size: rem(12px);
+        }
+    }
+    &__link-next{
+        color: $color-dark-text;
+        text-transform: uppercase;
+    }
+
+    &__link-next::after{
+        content: url('../../images/arrow-small-rgt.svg');
+        padding-left: rem(10px);
+    }
+}
+
+

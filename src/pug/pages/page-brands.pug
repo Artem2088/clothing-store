@@ -1,0 +1,50 @@
+extends ../templates/layout
+include ../mixins/_image
+include ../mixins/_link-button
+include ../mixins/_title
+include ../mixins/_offers-card
+include ../mixins/_breadcrumbs
+include ../mixins/_pagination
+
+
+block main
+    .page-brands
+        +breadcrumbs('', 'breadcrumb-catalog-category', 'Главная', 'Бренды')
+        .page-brands__title-container
+            +title('h2', 'Бренды A-Z', 'page-brands__title')
+        .subscribe-form.page-brands__search-container
+            input(type='search', placeholder='Поиск бренда', style='background-image: url("./images/search.svg")').uk-input.subscribe-form__input.page-brands__input
+            +linkButton('', 'НАЙТИ', 'page-brands__input-button')
+        .page-brands__alphabet-container
+            span.page-brands__span-title= "ТОП-БРЕНДЫ"
+            include ../_components/alphabet
+            .page-brands__links-container
+                a(href='#' class='page-brands__link')= '0-9'
+                a(href='#' class='page-brands__link')= 'РУС'
+                a(href='#' class='page-brands__link')= 'ВСЕ'
+        .d-none.d-lg-flex.section.page-brands__links-image
+            ul.page-brands__image-lists
+                each item in brandLists
+                    li.page-brands__item-image
+                        a(href='#')
+                            +image(item, 170, 75, 'page-brands__image')
+        .d-flex.d-lg-none.pt-4.section.page-brands__links-image(data-uk-slider)
+            .uk-position-relative.uk-visible-toggle.page-brands__wrapper(tabindex='-1')
+                ul.uk-slider-items.page-brands__lists
+                    each item in brands
+                        li.page-brands__each
+                            a(href='#')
+                                +image(item, 170, 75, 'page-brands__image')
+                ul.d-md-none.uk-slider-nav.uk-dotnav.uk-flex-center.mt-5.current-offers.current-offers-dotanv.page-brands__dotnav
+        .section.page-brands__links-name
+            ul.page-brands__name-lists
+                each brand, i in brandName
+                    li(id= i).page-brands__name-item
+                        span.page-brands__name-item-title= i
+                        ul.page-brands__name-item-lists
+                            each link in brand.links.name
+                                li.page-brands__name-item-each
+                                    a(href='#' class='page-brands__name-item-link')= link
+
+
+

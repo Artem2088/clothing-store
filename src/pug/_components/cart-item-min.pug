@@ -1,0 +1,19 @@
+include ../mixins/_helpers
+.cart-item.cart-item--min
+    .cart-item__img-wrap
+        +pictureLazy(`catalog-card-0-lg`, 100, 114, 'Фото', 'png')
+    .cart-item__content
+        .cart-item__description
+            .cart-item__title
+                span.cart-item__title.cart-item__title--brand Dolce & Gabbana&nbsp;
+                | Кожаные кроссовки Rhyton на шнуровке
+            .cart-item__dimensions.dimensions
+                +icon('info', 18, 18).dimensions__icon(data-uk-tooltip="title: Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium ipsum similique rem deserunt iusto, culpa quis beatae perspiciatis;")
+                .dimensions__text Размер:&nbsp;
+                    ul.dimensions__list.dimensions__list
+                        li.dimensions__list-item рф&nbsp;42
+                        li.dimensions__list-item Eu&nbsp;43
+                        li.dimensions__list-item us&nbsp;9
+        .cart-item__price
+            .cart-item__price-current 23&nbsp;000
+            .cart-item__price-old 32&nbsp;000

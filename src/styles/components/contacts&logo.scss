@@ -1,0 +1,51 @@
+.contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-right: 3%;
+    padding-bottom: 2%;
+
+    @media (max-width: 991px) {
+        order: 1;
+        padding: rem(40px) 0 0;
+    }
+
+    @media (max-width: 768px) {
+        padding: rem(57px) 0 0;
+    }
+
+    &__main-tel {
+        font-size: rem(12px);
+        color: inherit;
+        margin-top: rem(33px);
+
+        @media (max-width: 768px) {
+            margin-top: rem(24px);
+        }
+
+        &::after {
+            content: " ";
+            display: block;
+            width: rem(51px);
+            height: rem(1px);
+            background: $color-footer-line;
+            margin-top: rem(15px);
+            margin-bottom: rem(10px);
+            margin-inline: auto;
+        }
+    }
+
+    &__main-address-wrapp {
+        display: flex;
+        align-items: center;
+        max-width: rem(175px);
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    &__main-address {
+        font-size: rem(11px);
+        line-height: rem(20px);
+    }
+}

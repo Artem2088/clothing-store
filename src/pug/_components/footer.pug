@@ -1,0 +1,38 @@
+include ../mixins/_title
+include ../mixins/_link-button
+
+footer.footer
+    .footer__catalog(style="background-image: url('./images/full-catalog-banner.jpg')")
+        .footer__catalog-wrapp
+            +title('h2', 'ОТКРОЙТЕ ДЛЯ СЕБЯ ПОЛНЫЙ КАТАЛОГ', 'footer__catalog-title')
+            +linkButton('#', 'перейти', 'footer__catalog-button')
+    .footer__main
+        include ./contacts&logo
+        ul(data-uk-accordion).d-flex.d-lg-none.footer__main-accordion
+            each item, i in arrLinks
+                if(i == 'buy')
+                    li.footer__main-accordion-item
+                        a(href='#').uk-accordion-title.footer__main-accardion-title= item.title
+                        .uk-accordion-content.footer__main-accordion-content
+                            ul.footer__main-item-lists
+                                each link in item.links
+                                    li
+                                        a(href='#').footer__main-item-link= link
+                else
+                    li.footer__main-accordion-item
+                        a(href='#').uk-accordion-title.footer__main-accardion-title= item.title
+                        .uk-accordion-content.footer__main-accordion-content
+                            ul.footer__main-item-lists
+                                each link in item.links
+                                    li
+                                        a(href='#').footer__main-item-link= link
+        ul.d-none.d-lg-flex.footer__main-lists
+            each item, i in arrLinks
+                li.footer__main-item
+                    +title('h3', item.title, 'footer__main-item-title')
+                    ul.footer__main-item-lists
+                        each link in item.links
+                            li
+                                a(href='#').footer__main-item-link= link
+    include ./legal-information
+include ./mobile-under-menu

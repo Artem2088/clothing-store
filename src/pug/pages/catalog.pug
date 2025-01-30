@@ -1,0 +1,82 @@
+extends ../templates/layout
+include ../mixins/_image
+include ../mixins/_link-button
+include ../mixins/_title
+include ../mixins/_offers-card
+include ../mixins/_breadcrumbs
+
+
+block main
+    section.px-0.px-lg-3.section.upper
+        .row.upper__wrapp
+            .col-12.col-lg-6.px-0
+                +image('catalog-upper-img.jpg', 600, 340, 'd-block upper__image')
+                +title('h2', 'Мужская одежда, обувь, сумки и аксессуары', 'd-block d-lg-none upper__title upper__title_mobile')
+            .d-none.d-lg-flex.col-12.col-lg-6.mt-5.mt-lg-0.upper__rigth-block
+                +title('h2', 'Мужская одежда, обувь, сумки и аксессуары', 'upper__title')
+                p Поднимите свой образ с помощью кроссовок, каблуков, ботинок и сапог от Bottega Veneta
+    +breadcrumbs('199 товаров', 'd-flex d-lg-none', 'Мужское')
+    section(class='section current-offers')
+        +title('h2', 'Свежие поступления', 'px-5 px-md-0 current-offers__main-title')
+        ul(class='current-offers__nav-wrap' data-uk-tab='swiping: false')
+            each link, i in ['НОВИНКИ','РЕКОМЕНДУЕМ','СКИДКИ','SEARCH LIST']
+                li.current-offers__item
+                    button(type='button' class=`current-offers__tabs`)= link
+        .uk-switcher
+            div(data-uk-slider)
+                ul(class='uk-slider-items uk-child-width-1-4 uk-grid uk-grid-small no-hover-effect')
+                    each offers, i in offersCardLists
+                        +offersCard(offers, i)
+                ul.uk-slider-nav.uk-dotnav.uk-flex-center.current-offers-dotanv
+            div(data-uk-slider)
+                ul(class='uk-slider-items uk-child-width-1-4 uk-grid uk-grid-small no-hover-effect')
+                    each offersBotega, i in botegaVenetaLists
+                        +offersCard(offersBotega, i)
+                ul.uk-slider-nav.uk-dotnav.uk-flex-center.current-offers-dotanv
+            div(data-uk-slider)
+                ul(class='uk-slider-items uk-child-width-1-4 uk-grid uk-grid-small no-hover-effect')
+                    each offers, i in offersCardLists
+                        +offersCard(offers, i)
+                ul.uk-slider-nav.uk-dotnav.uk-flex-center.current-offers-dotanv
+            div(data-uk-slider)
+                ul(class='uk-slider-items uk-child-width-1-4 uk-grid uk-grid-small no-hover-effect')
+                    each offersCat, i in botegaVenetaLists
+                        +offersCard(offersCat, i)
+                ul.uk-slider-nav.uk-dotnav.uk-flex-center.current-offers-dotanv
+        +linkButton('#', 'смотреть все предложения', 'uk-margin-medium-top current-offers__button')
+        +linkButton('#', 'смотреть все', 'current-offers__button current-offers__button-mobile')
+    section.section.discount.catalog-discount
+        +title('h2', 'Лучшие предложения с' + breakStr +'дисконтом', 'discount__main-title')
+        ul.discount__lists.catalog-discount__lists
+            each item, i in discontCardsCatalog
+                li.uk-card.discount__item.catalog-discount__item
+                    +image(item.image, 370, 250, 'discount__image')
+                    .discount__wrapper.catalog-discount__description
+                        +title('h3', item.title, 'discount__title')
+                        p= item.desc
+                        +linkButton('#', 'купить', 'discount__button')
+    section.section.brands(data-uk-slider)
+        +title('h2', 'Популярные бренды')
+        .uk-position-relative.uk-visible-toggle.brands__wrapper(tabindex='-1')
+            ul.uk-slider-items.brands__lists
+                each item in brands
+                    li.brands__each
+                        a(href='#')
+                            +image(item, 170, 75, 'brands__image')
+            ul.d-md-none.uk-slider-nav.uk-dotnav.uk-flex-center.mt-5.current-offers-dotanv
+    section.section.commission.catalog-commission
+            +title('h2', 'Брендовая мужская одежда и аксессуары', 'px-4 px-lg-0')
+            .row.commission__desc-wrapp
+                p
+                    | Чем отличается одежда известных брендов от масс-маркета?
+                    | Конечно, безупречным кроем, качественными материалами и оригинальным стилем.
+                    | Регулярно обновлять гардероб в брендовых магазинах и аутлетах бывает довольно накладно, здесь на помощь придет комиссионный бутик NewLife.
+                p.d-none.js-display-block
+                    | Магазин брендовой одежды Ньюлайф стал флагманским местом,
+                    | буквально Resale store №1 в России, где можно удачно купить или выгодно продать одежду, обувь и аксессуары самых популярных марок,
+                    | включая Patrizia Pepe, Philipp Plein, Louis Vuitton, Kiton, Chanel, Abercrombie&Fitch,
+                    | Baldinini, Escada, Max Mara, Prada, Brunello Cucinelli, Dior, Fendi, Hermes, Moshino или Testoni.
+                    | Эксклюзивная особенность бутика – шубный зал, где представлены меховые изделия в идеальном состоянии.
+            +linkButton('', 'читать дальше', 'commission__link')
+
+

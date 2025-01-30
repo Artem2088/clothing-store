@@ -1,0 +1,89 @@
+include ../../mixins/_form-inputs
+form.cabinet-profile-form
+    .cabinet-profile-form__block
+        .row
+            .col-12.col-lg-4
+                +inputText('E-mail:', 'email', true, false, 'email')
+            .col-12.col-lg-4
+                +inputPhone('Телефон:', 'phone', true)
+            .col-12.col-lg-4
+                a(href="#").cabinet-profile-form__change-pass-link
+                    | Изменить пароль
+                    +icon('key', 18, 18)
+        .row
+            .col-12.col-lg-4
+                +inputText('Фамилия:', 'surname', true, false)
+            .col-12.col-lg-4
+                +inputText('Имя:', 'name', true, false)
+            .col-12.col-lg-4
+                +inputText('Отчество:', 'patronymic', true, false)
+        .row
+            .col-12.col-lg-4
+                +inputText('Дата рождения:', 'date', true, false, 'date')
+            .col-12.col-lg-4
+                +inputSelect('Пол:', 'sex', true, false, [{value: 1, name: 'Женский'}, {value: 2, name: 'Мужской'}])
+            .col-12.col-lg-4
+    .cabinet-profile-form__block
+        .cabinet-profile-form__block-header
+            +icon('pin2', 36, 34)
+            .cabinet-profile-form__block-description
+                .cabinet-profile-form__block-title адрес доставки
+                p Указанный адрес по умолчанию заполняется при оформлении заказа с доставкой. При этом у Вас всегда есть возможность внести изменения и указать иной адрес в заказе.
+        .row
+            .col-12.col-lg-4
+                +inputText('Страна:', 'country', true, false)
+            .col-12.col-lg-4
+                +inputText('Город:', 'city', true, false)
+            .col-12.col-lg-4
+                +inputText('Индекс:', 'postcode', true, true)
+        .row
+            .col-12.col-lg-4
+                +inputText('Улица/проспект/проезд', 'street', true, false)
+            .col-12.col-lg-4
+                +inputText('Дом/корпус/строение/литера:', 'house', true, false)
+            .col-12.col-lg-4
+                +inputText('Квартира/офис:', 'apartment', true, false)
+    .cabinet-profile-form__block
+        .cabinet-profile-form__block-header
+            +icon('suggest-price-thin', 36, 36)
+            .cabinet-profile-form__block-description
+                .cabinet-profile-form__block-title Банковские реквизиты
+                p Указанные реквизиты используются при формировании выплат. Обращаем внимание, что банк может взымать дополнительную комиссию за переводы.
+        .row
+            .col-12.col-lg-4
+                +inputText('Банк:', 'bank', true, false)
+            .col-12.col-lg-4
+                +inputText('БИК банка получателя:', 'bik', true, true)
+            .col-12.col-lg-4
+                +inputText('Номер расчетного счета:', 'bill', true, true)
+    .cabinet-profile-form__block
+        .cabinet-profile-form__block-header
+            +icon('expand-thin', 36, 36)
+            .cabinet-profile-form__block-description
+                .cabinet-profile-form__block-title размерные мерки и предпочтения
+                p Указанная информация поможет нам формировать для вас наиболее точные рекомендации и персональные предложения, соответсвующие вашим запросам.
+        .row
+            .col-12.col-lg-8
+                .row
+                    .col-12.col-lg-6
+                        +inputText('Размер обуви:', 'shoes-size', true, false)
+                    .col-12.col-lg-6
+                        +inputText('Размер одежды:', 'clothes-size', true, false)
+                .row
+                    .col-12.col-lg-6
+                        +inputText('Длина стопы по стельке в см:', 'size1', true, true)
+                    .col-12.col-lg-6
+                        +inputText('Рост в см:', 'size2', true, true)
+                .row
+                    .col-12.col-lg-6
+                        +inputText('Ширина стопы в см:', 'size3', true, true)
+                    .col-12.col-lg-6
+                        +inputText('Длина рукава в см:', 'size4', true, true)
+            .col-12.col-lg-4
+                +pictureLazy('cabinet-sizes', 177, 204, '', 'png').cabinet-profile-form__block-img
+    .cabinet-profile-form__block-chips
+        +inputSelectChips('Любимые бренды:', 'favorite-brands', true, false,[{value: 1, name: 'Chanel'}, {value: 2, name: 'Kenzo'}, {value: 3, name: 'Dolce & Gabbana'}], 'Добавить еще бренд')
+        +inputSelectChips('Любимые категории:', 'favorite-category', true, false,[{value: 1, name: 'Туфли'}, {value: 2, name: 'Джемперы'}, {value: 3, name: 'Солнечные очки'}, {value: 4, name: 'Клатчи'},{value: 5, name: 'Туфли5'}, {value: 6, name: 'Джемперы6'}, {value: 7, name: 'Солнечные очки7'}, {value: 8, name: 'Клатчи8'}], 'Добавить еще категорию')
+    .cabinet-profile-form__button
+        +button('dark')
+            | сохранить изменения

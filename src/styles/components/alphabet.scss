@@ -1,0 +1,16 @@
+.alphabet-lists {
+    display: flex;
+    align-items: center;
+    max-width: rem(990px);
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    &__link{
+        font-family: $font-family-base-semibold;
+        color: $color-text-gray;
+        font-size: rem(12px);
+        line-height: 1.174;
+        text-transform: uppercase;
+    }
+}

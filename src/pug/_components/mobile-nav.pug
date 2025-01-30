@@ -1,0 +1,5 @@
+nav.d-flex.d-lg-none.mobile-nav
+    ul.mobile-nav__lists
+        each item, i in {women: "Женское", men: "Мужское", kids: "Детское"}
+            li
+                a(href='#' class=`mobile-nav__link-tabs mobile-nav__link-tabs_${i}`)= item

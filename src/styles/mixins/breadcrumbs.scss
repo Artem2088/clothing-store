@@ -1,0 +1,50 @@
+.breadcrumb {
+    padding-block: rem(14px);
+    width: 100%;
+    justify-content: space-between;
+    &__lists {
+        display: flex;
+    }
+    &__link{
+        font-family: $font-family-base;
+        font-size: rem(11px);
+        line-height: 1.1736;
+        color: $color-price-old;
+        &:hover {
+            color: $color-dark-text;
+            opacity: 1;
+        }
+    }
+    &__link.breadcrumb__link-mobile::before{
+        content: url('../../images/arrow-breadcrumb.svg');
+        margin-right: rem(10px);
+        width: rem(3px);
+        height: rem(6px);
+
+        &:hover{
+            color: $color-dark-text;
+            opacity: 1;
+        }
+    }
+    &__link.breadcrumb__link-desc::before{
+        content: '/';
+        padding-inline: rem(5px);
+        width: rem(3px);
+        height: rem(6px);
+
+        &:hover{
+            color: $color-dark-text;
+            opacity: 1;
+        }
+    }
+    &__lists li:first-child .breadcrumb__link-desc::before{
+        content: '';
+        padding-inline: 0;
+    }
+
+    &__count-span{
+        font-family: $font-family-base;
+        font-size: rem(12px);
+        line-height: 1.174;
+    }
+}

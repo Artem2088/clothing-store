@@ -1,0 +1,856 @@
+-
+ const pages = [
+    {
+      name: 'Главная',
+      path: '/main.html'
+    },
+    {
+      name: 'Каталог',
+      path: '/catalog.html'
+    },
+    {
+      name: 'Каталог-категория',
+      path: '/catalog-category.html'
+    },
+    {
+      name: 'Каталог-подкатегория',
+      path: '/catalog-sub-category.html'
+    },
+    {
+      name: 'Бренды',
+      path: '/page-brands.html'
+    },
+    {
+      name: 'Bottega Veneta',
+      path: '/page-brand-Bottega_Veneta.html'
+    },
+    {
+      name: 'Search-list',
+      path: '/search-list.html'
+    },
+    {
+      name: 'Каталог. Карточка товара',
+      path: '/catalog-card.html'
+    },
+    {
+      name: 'Каталог. Карточка товара - В резерве',
+      path: '/catalog-card-reserve.html'
+    },
+    {
+      name: 'Каталог. Карточка товара - Продан',
+      path: '/catalog-card-sold.html'
+    },
+    {
+      name: 'Оформление заказа',
+      path: '/cart.html'
+    },
+    {
+      name: 'Кабинет - Дашборд',
+      path: '/cabinet-dashboard.html'
+    },
+    {
+      name: 'Кабинет - Профиль',
+      path: '/cabinet-profile.html'
+    },
+    {
+      name: 'Статичная форма авторизации',
+      path: '/static-login.html'
+    },
+ ];
+
+- var breakStr = ' ';
+-
+ var cards = {
+        men: {
+            title: 'Мужское',
+            links: {
+                name: ['Пуховики', 'Ботинки и полусапоги', 'Кроссовки'],
+                link: ['#', '#', '#']
+            },
+            transfer: '#'
+        },
+        women: {
+            title: 'Женское',
+            links: {
+                name: ['Одежда', 'Зимние сапоги', 'Сумки и клатчи'],
+                link: ['#', '#', '#']
+            },
+            transfer: '#'
+        },
+        kids: {
+            title: 'Десткое',
+            links: {
+                name: ['Ветровки', 'Обувь', 'Аксессуары'],
+                link: ['#', '#', '#']
+            },
+            transfer: '#'
+        }
+    };
+
+-
+ var offersCardLists = [
+                {
+                    tags: '',
+                    "qty-like": '55',
+                    image: 'shoes-01.jpg',
+                    title: 'Bottega Veneta',
+                    type: 'полусапоги',
+                    condition: 'отличное состояние',
+                    "price-current": '23 000',
+                    "price-old": '33 000',
+                },
+                {
+                    tags: 'New',
+                    "qty-like": '32',
+                    image: 'shoes-02.jpg',
+                    title: 'Bottega Veneta',
+                    type: 'ботинки',
+                    condition: 'отличное состояние',
+                    "price-current": '28 000',
+                    "price-old": '35 000',
+                },
+                {
+                    tags: 'Sale',
+                    "qty-like": '48',
+                    image: 'shoes-03.jpg',
+                    title: 'Bottega Veneta',
+                    type: 'кожаные кеды',
+                    condition: 'отличное состояние',
+                    "price-current": '65 000',
+                    "price-old": '',
+                },
+                {
+                    tags: '',
+                    "qty-like": '55',
+                    image: 'shoes-01.jpg',
+                    title: 'Bottega Veneta',
+                    type: 'полусапоги',
+                    condition: 'отличное состояние',
+                    "price-current": '23 000',
+                    "price-old": '33 000',
+                },
+                {
+                    tags: 'New',
+                    "qty-like": '32',
+                    image: 'shoes-02.jpg',
+                    title: 'Bottega Veneta',
+                    type: 'ботинки',
+                    condition: 'отличное состояние',
+                    "price-current": '28 000',
+                    "price-old": '35 000',
+                },
+            ];
+
+-
+ var offersCatalogCard = [
+                {
+                    tags: '',
+                    "qty-like": '55',
+                    image: 'topsiders-img.jpg',
+                    title: 'Louis Vuitton',
+                    type: 'топсайдеры',
+                    condition: 'отличное состояние',
+                    "price-current": '23 000',
+                    "price-old": '33 000',
+                },
+                {
+                    tags: 'New',
+                    "qty-like": '32',
+                    image: 'athletic-shoes-img.jpg',
+                    title: 'Giuseppe Zanotti',
+                    type: 'спортивные ботинки',
+                    condition: 'отличное состояние',
+                    "price-current": '47 000',
+                    "price-old": '52 000',
+                },
+                {
+                    tags: 'Sale',
+                    "qty-like": '48',
+                    image: 'sneakers-img.jpg',
+                    title: 'Dolce & Gabbana',
+                    type: 'кроссовки',
+                    condition: 'отличное состояние',
+                    "price-current": '87 000',
+                    "price-old": '',
+                },
+                {
+                    tags: '',
+                    "qty-like": '55',
+                    image: 'derby-img.jpg',
+                    title: 'Ermenegildo Zegna',
+                    type: 'дерби',
+                    condition: 'отличное состояние',
+                    "price-current": '23 000',
+                    "price-old": '33 000',
+                },
+                {
+                    tags: 'New',
+                    "qty-like": '32',
+                    image: 'shoes-02.jpg',
+                    title: 'Bottega Veneta',
+                    type: 'ботинки',
+                    condition: 'отличное состояние',
+                    "price-current": '28 000',
+                    "price-old": '35 000',
+                },
+            ];
+
+-
+ var infoCards = [
+    {
+        type: 'buy',
+        title: 'Как купить',
+        image: 'how-to-buy.png',
+        text: 'Найдите нужное предложение, забронируйте или оформите покупку, выбрав удобный способ доставки или самовывоза.',
+    },
+    {
+        type: 'sell',
+        title: 'Как продать',
+        image: 'how-to-sell.png',
+        text: 'Отправьте нам фотографии вашей вещи или запишитесь на оценку к байеру. Стоимость и условия сообщим сразу.',
+    }
+ ];
+-
+ var brands = ['brend-01.svg', 'brend-02.svg', 'brend-03.svg', 'brend-04.svg', 'brend-05.svg', 'brend-06.svg', 'brend-03.svg', 'brend-04.svg'];
+
+-
+ var discontCards = [
+    {
+        image: 'shoes.jpg',
+        title: 'Мужская обувь 2023',
+        desc: 'Узнайте о самых выгодных покупках года',
+        text: 'купить',
+    },
+    {
+        image: 'bags.jpg',
+        title: 'Сумки со скидкой',
+        desc: 'Впечатляющие предметы коллекционирования и редкие винтажные находки',
+        text: 'купить',
+    },
+    {
+        image: 'accessories.jpg',
+        title: 'Аксессуары с шиком',
+        desc: 'Получите признание после первой покупки',
+        text: 'купить',
+    },
+ ];
+
+-
+ var discontCardsCatalog = [
+    {
+        image: 'seasonal-shoes.jpg',
+        title: 'Сезонная обувь',
+        desc: 'Узнайте о самых выгодных покупках',
+        text: 'купить',
+    },
+    {
+        image: 'trend-img.jpg',
+        title: 'Будь в тренде',
+        desc: 'Пальто для безупречного образа',
+        text: 'купить',
+    },
+    {
+        image: 'history-img.jpg',
+        title: 'Вещи с историей',
+        desc: 'Безупречное состояние',
+        text: 'купить',
+    },
+ ];
+
+-
+ var contacts = [
+    {
+        icon: 'phone-Icon.svg',
+        link: 'tel:+7(812)-345-67-89',
+        text: '+7 812 345 6789',
+    },
+    {
+        icon: 'phone-Icon.svg',
+        link: 'tel:+7(812)-345-67-89',
+        text: '+7 981 985 7634',
+    },
+ ];
+
+- var banksIcon = ['master-card.svg', 'visa.svg', 'mir.svg'];
+
+- var links = ['©2022 NEWLIFE.MODA. Все права защищены.', 'Политика конфиденциальности', 'Пользовательское соглашение'];
+
+-
+ categoryLists = [
+            {
+                tags: '',
+                "qty-like": '55',
+                image: 'topsiders-img.jpg',
+                title: 'Louis Vuitton',
+                type: 'топсайдеры',
+                condition: 'отличное состояние',
+                "price-current": '23 000',
+                "price-old": '33 000',
+            },
+            {
+                tags: 'New',
+                "qty-like": '32',
+                image: 'athletic-shoes-img.jpg',
+                title: 'Giuseppe Zanotti',
+                type: 'спортивные ботинки',
+                condition: 'отличное состояние',
+                "price-current": '47 000',
+                "price-old": '52 000',
+            },
+            {
+                tags: 'Sale',
+                "qty-like": '48',
+                image: 'sneakers-img.jpg',
+                title: 'Dolce & Gabbana',
+                type: 'кроссовки',
+                condition: 'отличное состояние',
+                "price-current": '87 000',
+                "price-old": '',
+            },
+            {
+                tags: '',
+                "qty-like": '55',
+                image: 'shoes-01.jpg',
+                title: 'Bottega Veneta',
+                type: 'полусапоги',
+                condition: 'отличное состояние',
+                "price-current": '23 000',
+                "price-old": '33 000',
+            },
+            {
+                tags: '',
+                "qty-like": '55',
+                image: 'derby-img.jpg',
+                title: 'Ermenegildo Zegna',
+                type: 'дерби',
+                condition: 'отличное состояние',
+                "price-current": '23 000',
+                "price-old": '33 000',
+            },
+            {
+                tags: 'Sale',
+                "qty-like": '48',
+                image: 'shoes-03.jpg',
+                title: 'Bottega Veneta',
+                type: 'кожаные кеды',
+                condition: 'отличное состояние',
+                "price-current": '65 000',
+                "price-old": '',
+            },
+            {
+                tags: 'New',
+                "qty-like": '32',
+                image: 'botega-veneta-wom-img.png',
+                title: 'Bottega Veneta',
+                type: 'ботинки',
+                condition: 'отличное состояние',
+                "price-current": '26 000',
+                "price-old": '28 000',
+            },
+            {
+                tags: 'Sale',
+                "qty-like": '48',
+                image: 'valentino-shoes-img.jpg',
+                title: 'Valentino',
+                type: 'оксфорды',
+                condition: 'отличное состояние',
+                "price-current": '42 000',
+                "price-old": '',
+            },
+ ];
+
+-
+ subCategoryLists = [
+            {
+                tags: '',
+                "qty-like": '55',
+                image: 'topsiders-img.jpg',
+                title: 'Louis Vuitton',
+                type: 'топсайдеры',
+                condition: 'отличное состояние',
+                "price-current": '23 000',
+                "price-old": '33 000',
+            },
+            {
+                tags: 'New',
+                "qty-like": '32',
+                image: 'athletic-shoes-img.jpg',
+                title: 'Giuseppe Zanotti',
+                type: 'спортивные ботинки',
+                condition: 'отличное состояние',
+                "price-current": '47 000',
+                "price-old": '52 000',
+            },
+            {
+                tags: 'Sale',
+                "qty-like": '48',
+                image: 'sneakers-img.jpg',
+                title: 'Dolce & Gabbana',
+                type: 'кроссовки',
+                condition: 'отличное состояние',
+                "price-current": '87 000',
+                "price-old": '',
+            },
+            {
+                tags: '',
+                "qty-like": '55',
+                image: 'shoes-01.jpg',
+                title: 'Bottega Veneta',
+                type: 'полусапоги',
+                condition: 'отличное состояние',
+                "price-current": '23 000',
+                "price-old": '33 000',
+            },
+            {
+                tags: '',
+                "qty-like": '55',
+                image: 'derby-img.jpg',
+                title: 'Ermenegildo Zegna',
+                type: 'дерби',
+                condition: 'отличное состояние',
+                "price-current": '23 000',
+                "price-old": '33 000',
+            },
+            {
+                tags: 'Sale',
+                "qty-like": '48',
+                image: 'shoes-03.jpg',
+                title: 'Bottega Veneta',
+                type: 'кожаные кеды',
+                condition: 'отличное состояние',
+                "price-current": '65 000',
+                "price-old": '',
+            },
+            {
+                tags: 'Продано',
+                "qty-like": '32',
+                image: 'botega-veneta-wom-img.png',
+                title: 'Bottega Veneta',
+                type: 'ботинки',
+                condition: 'отличное состояние',
+                "price-current": '26 000',
+                "price-old": '',
+            },
+            {
+                tags: 'Продано',
+                "qty-like": '48',
+                image: 'valentino-shoes-img.jpg',
+                title: 'Valentino',
+                type: 'оксфорды',
+                condition: 'отличное состояние',
+                "price-current": '42 000',
+                "price-old": '',
+            },
+ ];
+
+-
+ var brandLists = [
+    'brend-01.svg',
+    'brend-02.svg',
+    'brend-03.svg',
+    'brend-04.svg',
+    'brend-05.svg',
+    'brend-06.svg',
+
+    'brend-03.svg',
+    'brend-05.svg',
+    'brend-06.svg',
+    'brend-01.svg',
+    'brend-02.svg',
+    'brend-04.svg',
+
+    'brend-04.svg',
+    'brend-06.svg',
+    'brend-01.svg',
+    'brend-02.svg',
+    'brend-05.svg',
+    'brend-03.svg',
+
+    'brend-01.svg',
+    'brend-02.svg',
+    'brend-03.svg',
+    'brend-04.svg',
+    'brend-05.svg',
+    'brend-06.svg',
+    ];
+
+-
+ var brandName = {
+        a: {
+            links: {
+                name: ['A Better Mistake', 'Alberta Ferretti', 'ATM Anthony Thomas Melillo', 'A Mere Co', 'Alexander McQueen', 'AZ Factory',
+                 'Acupuncture', 'Alexander McQueen', 'AZ Factory', 'Alberta Ferretti', 'Antonelli Firenze', 'Azlee' ],
+            },
+        },
+         b: {
+            links: {
+                name: ['Baccarat', 'Berluti', 'Bobbi Brown', 'Brunello Cucinelli', 'Balenciaga', 'Bernardaud', 'Borbonese', 'Burberry', 'Balmain', 'Bibi van der Velden', 'BOSS', 'BVLGARI',
+                'Bea Bongiasca', 'Boadicea the Victorious', 'Bottega Veneta'],
+            },
+        },
+    };
+
+-
+ botegaVenetaLists = [
+            {
+                tags: '',
+                "qty-like": '55',
+                image: 'botega_veneta_bag_yellow.jpg',
+                title: 'Bottega Veneta',
+                type: 'сумка',
+                condition: 'отличное состояние',
+                "price-current": '23 000',
+                "price-old": '33 000',
+            },
+            {
+                tags: 'New',
+                "qty-like": '32',
+                image: 'botega_veneta_bag.jpg',
+                title: 'Bottega Veneta',
+                type: 'сумка',
+                condition: 'отличное состояние',
+                "price-current": '47 000',
+                "price-old": '52 000',
+            },
+            {
+                tags: 'Sale',
+                "qty-like": '48',
+                image: 'botega_veneta_trousers.jpg',
+                title: 'Bottega Veneta',
+                type: 'джинсы узкие',
+                condition: 'отличное состояние',
+                "price-current": '27 000',
+                "price-old": '35 000',
+            },
+            {
+                tags: '',
+                "qty-like": '55',
+                image: 'shoes-01.jpg',
+                title: 'Bottega Veneta',
+                type: 'полусапоги',
+                condition: 'отличное состояние',
+                "price-current": '23 000',
+                "price-old": '',
+            },
+            {
+                tags: '',
+                "qty-like": '55',
+                image: 'derby-img.jpg',
+                title: 'Ermenegildo Zegna',
+                type: 'дерби',
+                condition: 'отличное состояние',
+                "price-current": '53 000',
+                "price-old": '63 000',
+            },
+            {
+                tags: 'Sale',
+                "qty-like": '48',
+                image: 'shoes-03.jpg',
+                title: 'Bottega Veneta',
+                type: 'кожаные кеды',
+                condition: 'отличное состояние',
+                "price-current": '65 000',
+                "price-old": '75 000',
+            },
+            {
+                tags: 'New',
+                "qty-like": '32',
+                image: 'botega_veneta_wallet.jpg',
+                title: 'Bottega Veneta',
+                type: 'кошелек',
+                condition: 'отличное состояние',
+                "price-current": '26 000',
+                "price-old": '',
+            },
+            {
+                tags: 'Sale',
+                "qty-like": '48',
+                image: 'botega_veneta_high-boots.jpg',
+                title: 'Bottega Veneta',
+                type: 'ботинки',
+                condition: 'отличное состояние',
+                "price-current": '42 000',
+                "price-old": '45 000',
+            },
+ ];
+
+-
+ var searchLists = [
+            {
+                tags: '',
+                "qty-like": '55',
+                image: 'topsiders-img.jpg',
+                title: 'Louis Vuitton',
+                type: 'топсайдеры',
+                condition: null,
+                "price-current": null,
+                "price-old": null,
+            },
+            {
+                tags: '',
+                "qty-like": '32',
+                image: 'athletic-shoes-img.jpg',
+                title: 'Giuseppe Zanotti',
+                type: 'спортивные ботинки',
+                condition: null,
+                "price-current": null,
+                "price-old": null,
+            },
+            {
+                tags: '',
+                "qty-like": '48',
+                image: 'sneakers-img.jpg',
+                title: 'Dolce & Gabbana',
+                type: 'кроссовки',
+                condition: null,
+                "price-current": null,
+                "price-old": null,
+            },
+            {
+                tags: '',
+                "qty-like": '55',
+                image: 'shoes-01.jpg',
+                title: 'Bottega Veneta',
+                type: 'полусапоги',
+                condition: null,
+                "price-current": null,
+                "price-old": null,
+            },
+            {
+                tags: '',
+                "qty-like": '55',
+                image: 'derby-img.jpg',
+                title: 'Ermenegildo Zegna',
+                type: 'дерби',
+                condition: null,
+                "price-current": null,
+                "price-old": null,
+            },
+            {
+                tags: '',
+                "qty-like": '48',
+                image: 'shoes-03.jpg',
+                title: 'Bottega Veneta',
+                type: 'кожаные кеды',
+                condition: null,
+                "price-current": null,
+                "price-old": null,
+            },
+            {
+                tags: '',
+                "qty-like": '32',
+                image: 'botega-veneta-wom-img.png',
+                title: 'Bottega Veneta',
+                type: 'ботинки',
+                condition: null,
+                "price-current": null,
+                "price-old": null,
+            },
+            {
+                tags: '',
+                "qty-like": '48',
+                image: 'valentino-shoes-img.jpg',
+                title: 'Valentino',
+                type: 'оксфорды',
+                condition: null,
+                "price-current": null,
+                "price-old": null,
+            },
+            {
+                tags: '',
+                "qty-like": '55',
+                image: 'derby-img.jpg',
+                title: 'Ermenegildo Zegna',
+                type: 'дерби',
+                condition: null,
+                "price-current": null,
+                "price-old": null,
+            },
+            {
+                tags: '',
+                "qty-like": '48',
+                image: 'shoes-03.jpg',
+                title: 'Bottega Veneta',
+                type: 'кожаные кеды',
+                condition: null,
+                "price-current": null,
+                "price-old": null,
+            },
+            {
+                tags: '',
+                "qty-like": '32',
+                image: 'botega-veneta-wom-img.png',
+                title: 'Bottega Veneta',
+                type: 'ботинки',
+                condition: null,
+                "price-current": null,
+                "price-old": null,
+            },
+            {
+                tags: '',
+                "qty-like": '48',
+                image: 'valentino-shoes-img.jpg',
+                title: 'Valentino',
+                type: 'оксфорды',
+                condition: null,
+                "price-current": null,
+                "price-old": null,
+            },
+ ];
+
+-
+ var arrLinks = {
+    buy: {
+        title: 'Купить',
+        links: ['Новинки', 'Распродажа', 'Бренды', 'Одежда', 'Обувь', 'Сумки', 'Аксессуары', 'Аукцион'],
+    },
+    sell: {
+        title: 'Продать',
+        links: ['Оценка вещей', 'Resale VIP', 'Что продаём', 'Сотрудничество'],
+    },
+    info: {
+        title: 'Информация',
+        links: ['О нас', 'Доставка', 'Акции', 'Карта клуба', 'Вакансии', 'Для стилиста', 'Для блогера', 'Контакты'],
+    },
+    kabinet: {
+        title: 'Личный кабинет',
+        links: ['Запись на оценку', 'Оценить вещь', 'Резерв и приёмка', 'Войти']
+    }
+ };
+
+-
+ var menuClothes = [
+    {
+        title: 'Одежда',
+        navLinks: ['Новинки', 'Sale', 'Search List'],
+        anotherLink: ['Куртки и пуховики', 'Пальто и плащи', 'Ветровки', 'Джемперы', 'Футболки и поло', 'Юбки'],
+        additionalLink: '',
+    },
+    {
+        title: '',
+        navLinks: [],
+        anotherLink: ['Брюки', 'Джинсы', 'Рубашки и блузы', 'Худи и толстовки', 'Купальники', 'Комбинезоны', 'Пиджаки и костюмы', 'Нижнее белье', 'Водолазки', 'Шорты'],
+        additionalLink: 'Вся одежда',
+    },
+    {
+        title: 'топ бренды',
+        navLinks: [],
+        anotherLink: ['Alexander Mcqueen', 'Alexander Wang', 'Alberta Ferretti', 'Balenciaga', 'Brioni', 'Chanel', 'Chloe', 'Christian Louboutin', 'Gucci', 'Hermes'],
+        additionalLink: 'Все бренды',
+    },
+ ];
+
+-
+ var menuSale = [
+    {
+        title: 'Одежда',
+        navLinks: [],
+        anotherLink: ['Пуховики и куртки', 'Пальто и плащи', 'Худи и толстовки', 'Джемперы', 'Кобинезоны', 'Купальники', 'Пиджаки и костюмы', 'Джемперы', 'Футболки и поло', 'Юбки'],
+        additionalLink: 'Весь Sale одежды',
+    },
+    {
+        title: 'Обувь',
+        navLinks: [],
+        anotherLink: ['Эспадрильи', 'Мокасины', 'Сапоги', 'Балетки', 'Босоножки', 'Сандалии', 'Кеды', 'Ботильоны', 'Кроссовки', 'Туфли'],
+        additionalLink: 'Весь Sale обуви',
+    },
+    {
+        title: 'SALE в брендах',
+        navLinks: [],
+        anotherLink: ['Alexander Mcqueen', 'Alexander Wang', 'Alberta Ferretti', 'Balenciaga', 'Brioni', 'Chanel', 'Chloe', 'Christian Louboutin'],
+        additionalLink: '',
+    },
+ ];
+
+-
+ var menuNew = [
+    {
+        title: 'Одежда',
+        navLinks: [],
+        anotherLink: ['Блузы и рубашки', 'Брюки', 'Джемперы', 'Джинсы', 'Кобинезоны', 'Купальники', 'Пиджаки и костюмы', 'Худи и толстовки', 'Футболки и поло', 'Юбки'],
+        additionalLink: 'Вся новая одежда',
+    },
+    {
+        title: 'Обувь',
+        navLinks: [],
+        anotherLink: ['Туфли', 'Кроссовки ', 'Ботильоны', 'Сапоги', 'Босоножки', 'Сандалии', 'Кеды', 'Балетки', 'Мокасины', 'Эспадрильи'],
+        additionalLink: 'Вся новая обувь',
+    },
+    {
+        title: 'Новые бренды',
+        navLinks: [],
+        anotherLink: ['Alexander Mcqueen', 'Alexander Wang', 'Alberta Ferretti', 'Balenciaga', 'Brioni', 'Chanel', 'Chloe', 'Christian Louboutin'],
+        additionalLink: '',
+    },
+ ];
+
+-
+ var menuBrands = [
+    {
+        title: 'топ бренды',
+        navLinks: [],
+        anotherLink: ['Alexander Mcqueen', 'Alexander Wang', 'Alberta Ferretti', 'Balenciaga', 'Brioni', 'Chanel', 'Chloe', 'Christian Louboutin', 'Dolce & Gabbana', 'Dsquared2', 'Emporio Armani', 'Fendi'],
+        additionalLink: '',
+    },
+    {
+        title: '',
+        navLinks: [],
+        anotherLink: ['Ferragamo', 'Gucci  ', 'Givenchy', 'Gianfranco Ferre', 'Hermes', 'Intrend Max Mara', 'Just Cavalli', 'Jean Paul Gaultier', 'Kenzo ', 'Louis Vuitton'],
+        additionalLink: 'Вся бренды',
+    },
+    {
+        title: 'рекомендуем',
+        navLinks: [],
+        anotherLink: ['Ботинки Alexander Mcqueen', 'Платья Alexander Wang', 'Туфли Alberta Ferretti', 'Пальто Balenciaga', 'Аксессуары Brioni', 'Платья Chanel', 'Головные уборы Chloe', 'Туфли Christian Louboutin'],
+        additionalLink: '',
+    },
+ ];
+-
+ navigationLists = [
+    {
+        name: 'Новинки',
+        data: 'new'
+    },
+    {
+        name: 'SALE',
+        data: 'sale'
+    },
+    {
+        name: 'ОДЕЖДА',
+        data: 'clothes'
+    },
+    {
+        name: 'ОБУВЬ',
+        data: 'shoes'
+    },
+    {
+        name: 'СУМКИ',
+        data: 'bags'
+    },
+    {
+        name: 'АКСЕССУАРЫ',
+        data: 'accessories'
+    },
+    {
+        name: 'LOOK',
+        data: 'look'
+    },
+    {
+        name: 'БРЕНДЫ',
+        data: 'brands'
+    },
+    {
+        name: 'SEARCH LIST',
+        data: 'search-lists'
+    },
+ ];
+-
+ var includeForms =
+ `<div class='filepond-field__banner'>
+    <div class='filepond-field__icon-wrap'>
+        <svg class='svg-icon svg-icon--more-photo filepond-field__icon' width='20' height='19'>
+            <use xlink:href='/images/icons.svg#more-photo'></use>
+        </svg>
+    </div>
+    <span class='js-filepond-label-text'>Загрузите не менее одной фотографии вещи</span>
+ </div>`;

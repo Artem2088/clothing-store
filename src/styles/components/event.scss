@@ -1,0 +1,28 @@
+.event{
+    width: 100%;
+    background-color: $color-card;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: rem(10px);
+    padding-top: rem(10px);
+    padding-bottom: rem(13px);
+
+    @media (min-width: 1441px) {
+        width: 100vw;
+    }
+
+    &__span{
+        font-size: rem(13px);
+        line-height: 1.208;
+    }
+    &__time{
+        background-color: $color-dark-text;
+        color: $color-ligth-text;
+        font-family: $font-family-base-medium;
+        font-size: rem(13px);
+        line-height: 1.208;
+        padding-block: rem(3px);
+        padding-inline: rem(5px);
+    }
+}

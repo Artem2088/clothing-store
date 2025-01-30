@@ -1,0 +1,136 @@
+doctype html
+html(lang='ru')
+    include ../templates/head
+    include ../mixins/_image
+    include ../mixins/_title
+    include ../mixins/_form-inputs
+
+    body.root
+        noscript
+            strong
+                | We're sorry but this project doesn't work properly without JavaScript enabled. Please enable it to continue.
+        .page.cart-page
+            header.cart-page__header
+                .container
+                    .cart-page__header-content
+                        a.d-none.d-lg-flex.cart-page__header-link
+                            +icon('arrow-back', 10, 10)
+                            | Вернуться к покупкам
+                        a.d-block.d-lg-none.mr-4.cart-page__header-link
+                            +icon('arrow-back', 20, 20)
+                        a(href="/").d-none.d-lg-block
+                            +image('logo.svg', 234, 30, '')
+                        a(href="/").d-block.d-lg-none.mx-auto
+                            +image('logo.svg', 155, 18, '')
+
+
+            main.pt-0.main
+                .container.container-base.d-block
+                    .cart-page__title-wrap
+                        +title('h1', 'Оформление заказа', '')
+                    .cart-page__make-order.make-order
+                        form.make-order__form
+                            .make-order__form-order-options.order-options
+                                .order-options__step
+                                    .order-options__step-icon.d-none.d-md-block
+                                        +icon('shipping-01', 37, 112)
+                                    .order-options__step-content
+                                        .order-options__step-header
+                                            span.order-options__step-header-num 1.
+                                            | выберите способ доставки
+                                        .order-options__step-body
+                                            +inputRadio('Примерка в магазине: 15 часов', 'delivery', '1', 'Вещи из корзины уйдут в резерв и будут ждать Вашего визита в течении указанного срока', '0 ₽')
+                                            +inputRadio('Примерка в магазине:  30 часов', 'delivery', '2', 'Вещи из корзины уйдут в резерв и будут ждать Вашего визита в течении указанного срока', '1 000 ₽')
+                                            +inputRadio('Примерка на дому', 'delivery', '3', 'Доставим вещи на примерку по нужному адресу в Санкт-Петербурге. Не более 10 вещей!', '2 000 ₽')
+                                            +inputRadio('Доставка по Санкт-Петербургу', 'delivery', '4', 'Укажите адрес и желаемое время доставки и мы сообщим стоимость.', 'от 500 ₽')
+                                            +inputRadio('Доставка по России', 'delivery', '5', 'Стоимость доставки рассчитывается согласно тарифам выбранного оператора.', 'от 1 500 ₽')
+                                .order-options__step
+                                    .order-options__step-icon.d-none.d-md-block
+                                        +icon('shipping-02', 37, 112)
+                                    .order-options__step-content
+                                        .order-options__step-header
+                                            span.order-options__step-header-num 2.
+                                            | укажите адрес и контакты получателя
+                                        .order-options__step-body
+                                            .row
+                                                .col-12
+                                                    +inputText('Улица', 'name', true).sm
+                                                .col-12.col-lg-6
+                                                    +inputText('Дом', 'name', true).sm
+                                                .col-12.col-lg-6
+                                                    +inputText('Квартира', 'name', true).sm
+                                                .col-12.col-lg-6
+                                                    +inputText('Имя получателя', 'name', true).sm
+                                                .col-12.col-lg-6
+                                                    +inputPhone('Телефон', 'name', true).sm
+                                                .col-12
+                                                    +inputTextarea('Комментарий к заказу', 'name', true, true).sm
+
+                                .order-options__step
+                                    .order-options__step-icon.d-none.d-md-block
+                                        +icon('shipping-03', 36, 36)
+                                    .order-options__step-content
+                                        .order-options__step-header
+                                            span.order-options__step-header-num 3.
+                                            | выберите способ оплаты
+                                        .order-options__step-body
+                                            +inputRadio('Онлайн-оплата картой', 'pay', '1').form-field--radio-no-additional
+                                                .form-field__icons
+                                                    +icon('mastercard', 26, 16)
+                                                    +icon('visa', 51, 16)
+                                                    +icon('mir', 54, 16)
+                                            +inputRadio('СБП онлайн', 'pay', '2').form-field--radio-no-additional
+                                                .form-field__icons
+                                                    +icon('sbp', 20, 25)
+                                            +inputRadio('Оплата при получении', 'pay', '3').form-field--radio-no-additional
+
+
+                            .make-order__form-order-list
+                                .order-list
+                                    .order-list__content
+                                        .order-list__header
+                                            span ваш заказ
+                                            a.order-list__link(href='#order-done' data-uk-toggle='') Изменить
+                                        .order-list__body
+                                            ul.order-list__items
+                                                li.order-list__item
+                                                    a(href='#')
+                                                        include ../_components/cart-item-min
+                                                li.order-list__item
+                                                    a(href='#')
+                                                        include ../_components/cart-item-min
+                                                li.order-list__item
+                                                    a(href='#')
+                                                        include ../_components/cart-item-min
+                                            .order-list__promocode-wrap
+                                                +inputText('Промокод', 'promocode', true).pb-0.sm
+                                                +button('brand')(type='button').sm
+                                                    | применить
+                                .order-total
+                                    .order-total__title итого к оплате
+                                    .order-total__sum 271 000 ₽
+                                    table.order-total__table.order-table
+                                        tbody
+                                            tr.order-table__row
+                                                td.order-table__cell
+                                                    span 3 вещи на общую сумму:
+                                                td.order-table__cell 271 000 ₽
+                                            tr.order-table__row
+                                                td.order-table__cell
+                                                    span скидка составит:
+                                                td.order-table__cell 77 000 ₽
+                                            tr.order-table__row
+                                                td.order-table__cell
+                                                    span доставка:
+                                                td.order-table__cell 0 ₽
+                                    .order-total__btn-wrap
+                                        +button('dark')(type='button')
+                                            | оплатить доставку
+
+
+            footer.mt-5.cart-page__footer
+                .container
+                    include ../_components/legal-information
+            include ../_components/modals/order-done
+
+        include ../templates/scripts

@@ -1,0 +1,14 @@
+extends ./templates/layout-site-pages
+
+block main
+  main
+    section.pt-0.section
+      .container
+        h1.title Страницы
+        hr
+        ul
+          each page in pages
+            li
+              a(href=page.path)= page.name
+
+

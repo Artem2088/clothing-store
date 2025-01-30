@@ -1,0 +1,16 @@
+include ../mixins/_image
+
+.d-flex.d-lg-none.under-menu
+    .under-menu__wrapp
+        ul.under-menu__lists
+            each item, value in {'Новинки':'user-image.svg', 'Аукцион':'auction.svg', 'Продать':'buy.svg', 'Профиль':'user-image.svg', 'Избранное':'favourites-image.svg'}
+                li
+                    if (value == 'Профиль')
+                        a(href='#' data-uk-toggle="target: #profile-sidebar").under-menu__link
+                            +image(item, 20, 20, '')
+                            span= value
+                    else
+                        a(href='#').under-menu__link
+                            +image(item, 20, 20, '')
+                            span= value
+

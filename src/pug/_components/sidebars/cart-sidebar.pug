@@ -1,0 +1,37 @@
+#cart-sidebar.cart-sidebar(data-uk-offcanvas='flip: true; mode: slide;  overlay: true')
+  .uk-offcanvas-bar
+    button.uk-offcanvas-close.modal-close-default(type='button')
+        +icon('close-round', 30, 30)
+    .cart-sidebar__header
+        | в вашей корзине —&nbsp;
+        span.cart-sidebar__count 3 товара
+    .cart-sidebar__body
+        .cart
+            ul.cart__list
+                li.cart__list-item
+                    include ../cart-item
+                li.cart__list-item
+                    include ../cart-item-2
+                li.cart__list-item
+                    include ../cart-item
+
+            .cart__result
+                .cart__result-title Итого
+                .cart__result-table-wrap
+                    table.cart__result-table.cart-result-table
+                        tbody
+                            tr.cart-result-table__row
+                                td.cart-result-table__cell 3 вещи на общую сумму:
+                                td.cart-result-table__cell.cart-result-table__cell--result-price 271&nbsp;000&nbsp;₽
+                            tr.cart-result-table__row
+                                td.cart-result-table__cell скидка составит:
+                                td.cart-result-table__cell.cart-result-table__cell--discount 77&nbsp;000&nbsp;₽
+                            tr.cart-result-table__row
+                                td.cart-result-table__cell бонусные баллы:
+                                td.cart-result-table__cell.cart-result-table__cell--bonus 1&nbsp;350
+            .cart__info Условия и стоимость доставки будут рассчитаны при оформлении заказа
+            .cart__link
+                +button('dark', true).lg
+                    | оформить покупку
+    .cart-sidebar__footer
+        include ../banners/trade-in

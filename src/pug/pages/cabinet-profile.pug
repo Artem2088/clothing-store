@@ -1,0 +1,14 @@
+extends ../templates/layout
+include ../mixins/_breadcrumbs
+
+block main
+    +breadcrumbs('', 'd-flex breadcrumb-catalog-category', 'Главная', 'Личный кабинет', 'Профиль')
+
+    section.section.cabinet-wrap
+        .cabinet-wrap__profile.d-none.d-lg-block
+            include ../_components/profile-user-card
+        .cabinet-wrap__content
+            .cabinet-wrap__header
+                h1.cabinet-wrap__title Мой профиль
+                p Обращаем Ваше внимание, что изменяемые данные в профиле проходят проверку внесенных изменений администратором. При необходимости мы свяжемся с Вами для уточнения деталей.
+            include ../_components/forms/cabinet-profile-form

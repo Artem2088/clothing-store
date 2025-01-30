@@ -1,0 +1,24 @@
+doctype html
+html(lang='ru')
+    include ./head
+
+    body.root
+        noscript
+            strong
+                | We're sorry but this project doesn't work properly without JavaScript enabled. Please enable it to continue.
+        .page
+            include ../_components/header
+            main.main
+                .container.container-base
+                    block main
+
+            include ../_components/footer
+            include ../_components/modals/mobile-menu
+            include ../_components/modals
+            include ../_components/modals/trade-in-1
+            include ../_components/modals/trade-in-2
+            include ../_components/sidebars/cart-sidebar
+            include ../_components/page-filter
+            include ../_components/sidebars/profile-sidebar
+
+        include ./scripts

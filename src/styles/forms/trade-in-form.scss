@@ -1,0 +1,10 @@
+.trade-in-form {
+    display: grid;
+    grid-template-columns: rem(210px) 1fr;
+    gap: rem(32px);
+    padding: 0 rem(23px);
+    @include media('max', 'lg') {
+        padding: 0;
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,21 @@
+include ../../mixins/_title
+include ../../mixins/_link-button
+include ../../mixins/_image
+include ../../mixins/_form-inputs
+
+.subscribe-form
+    +title('h2', 'Подпишитесь на новинки', 'px-3 px-md-none subscribe-form__title')
+    form.subscribe-form__form(action="#")
+        .subscribe-form__input-wrap
+            +inputText('E-mail', 'email', true, false, 'email').pb-0
+            +linkButton('', 'Отправить', 'subscribe-form__input-button')
+        .subscribe-form__radio-wrap
+            label(class='subscribe-form__label')
+                input(type='radio', name="radio1" checked).uk-radio.subscribe-form__radio
+                | Женское
+            label(class='subscribe-form__label')
+                input(type='radio', name="radio1").uk-radio.subscribe-form__radio
+                | Мужское
+            label(class='subscribe-form__label')
+                input(type='radio', name="radio1").uk-radio.subscribe-form__radio
+                | Детское

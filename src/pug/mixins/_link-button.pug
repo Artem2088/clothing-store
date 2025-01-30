@@ -1,0 +1,5 @@
+mixin linkButton(_link, _text, _className)
+    if _link !== ''
+        a.link-button(href=`${_link}` class=`${_className}`)=_text
+    else
+        button.link-button(class=`${_className}`)=_text

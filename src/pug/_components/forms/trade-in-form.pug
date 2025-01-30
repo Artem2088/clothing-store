@@ -1,0 +1,31 @@
+include ../../mixins/_form-inputs
+
+form.trade-in-form
+    .trade-in-form__photos
+        .filepond-field.js-filepond-field
+            .filepond-field__wrap
+                input.filepond-field__input.js-filepond(type='file', accept='image/*', name='PHOTOS[]', multiple, data-allow-reorder='true', data-max-file-size='3MB', data-max-files='10', data-label!= includeForms)
+    .trade-in-form__fields
+        .row
+            .col-12.col-lg-6
+                +inputSelect('Выберите каталог:', 'name', true, false,[{value: 1, name: 'Женский'}, {value: 2, name: 'Мужской'}])
+            .col-12.col-lg-6
+                +inputSelect('Выберите бренд:', 'name', true, false,[{value: 1, name: 'Gucci'},{value: 2, name: 'не Gucci'}])
+            .col-12.col-lg-6
+                +inputSelect('Выберите категорию:', 'name', true, false,[{value: 1, name: 'Обувь'}, {value: 2, name: 'не Обувь'}])
+            .col-12.col-lg-6
+                +inputSelect('Укажите наименование:', 'name', true, false,[{value: 1, name: 'Кожаные туфли'},{value: 2, name: 'не Кожаные туфли'}])
+            .col-12.col-lg-6
+                +inputSelect('Выберите тип:', 'name', true, false,[{value: 1, name: 'Туфли'},{value: 2, name: 'не Туфли'}])
+            .col-12.col-lg-6
+                +inputSelect('Состояние вещи:', 'name', true, false,[{value: 1, name: 'Отличное'},{value: 2, name: 'не Отличное'}])
+            .col-12.col-lg-6.pt-0.pt-lg-4
+                +inputText('Минимальная цена:', 'name', true, true, '' , '', true)
+            .col-12.col-lg-6.pt-0.pt-lg-4
+                +inputText('Максимальная цена:', 'name', true, true, '' , '', true)
+            .col-12.pt-0.pt-lg-4.pb-3.pb-lg-5
+                +inputTextarea('Добавьте описание вещи:', 'name', true, true)
+        .row
+            .col-lg-7
+                +button('dark')
+                    | отправить запрос

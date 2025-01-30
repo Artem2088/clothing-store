@@ -1,0 +1,128 @@
+extends ../templates/layout
+include ../mixins/_image
+include ../mixins/_link-button
+include ../mixins/_title
+include ../mixins/_offers-card
+include ../mixins/_breadcrumbs
+
+block main
+    +breadcrumbs('', 'breadcrumb-catalog-category', 'Главная', 'Мужское', 'Обувь', 'Кроссовки и кеды')
+    section.section
+        h1.visually-hidden Кожаные кроссовки Rhyton на шнуровке
+        article.catalog-card
+            include ../_components/catalog-card-left
+
+            .catalog-card__right
+                h2.catalog-card__title
+                    span.catalog-card__title.catalog-card__title--brand Dolce & Gabbana&nbsp;
+                    | Кожаные кроссовки Rhyton на шнуровке
+                .catalog-card__price-block
+                    .catalog-card__dimensions.dimensions
+                        +icon('info', 18, 18).dimensions__icon(data-uk-tooltip="title: Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium ipsum similique rem deserunt iusto, culpa quis beatae perspiciatis;")
+                        .dimensions__text Размер:&nbsp;
+                            ul.dimensions__list
+                                li.dimensions__list-item рф 42
+                                li.dimensions__list-item Eu 43
+                                li.dimensions__list-item us 9
+                    .catalog-card__price
+                        span ₽&nbsp;28&nbsp;000
+                        span.catalog-card__price.catalog-card__price--old 33&nbsp;000
+
+                .catalog-card__banners-top
+                    include ../_components/banners/card-banner-add-to-search-list
+                    include ../_components/banners/card-banner-best-offers
+                .catalog-card__options
+                    .catalog-card__get-tabs-wrap
+                        .catalog-card__get-tabs
+                            +button('default', true).sm(href="#item-options" data-uk-toggle)
+                                | ХАРАКТЕРИСТИКИ
+                            +button('default', true).sm(href="#item-options" data-uk-toggle)
+                                | ЗАМЕРЫ
+                            +button('default', true).sm(href="#item-options" data-uk-toggle)
+                                | ДОСТАВКА И ВОЗВРАТ
+                    .catalog-card__item-condition
+                        .catalog-card__item-condition-title
+                            span Состояние вещи
+                            +icon('info', 18, 18)(data-uk-tooltip="title: Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium ipsum similique rem deserunt iusto, culpa quis beatae perspiciatis;")
+                        .catalog-card__item-condition-line
+                            .catalog-card__item-condition-line-item Удовлетворительное
+                            .catalog-card__item-condition-line-item Хорошее
+                            .catalog-card__item-condition-line-item.active Отличное
+                            .catalog-card__item-condition-line-item Безупречное
+                        .catalog-card__item-condition-title
+                            span Местоположение
+                        .catalog-card__item-address
+                            +icon('pin', 18, 18)
+                            .catalog-card__item-address-text
+                                a(href="#").catalog-card__item-address-city Санкт-Петербург, Садовая улица, дом 49
+                                p Дата поступления : 20 декабря 2023
+        section(class='section current-offers catalog-card-section')
+            +title('h2', 'Похожие предложения', 'current-offers__main-title')
+            ul(class='current-offers__nav-wrap catalog-card__nav-wrap' data-uk-tab='swiping: false')
+                each link, i in ['Релевантные','по бренду','по стилю']
+                    li.current-offers__item
+                        button(type='button' class=`current-offers__tabs`)= link
+            .uk-switcher
+                div(data-uk-slider)
+                    ul(class='uk-slider-items uk-child-width-1-4 uk-grid uk-grid-small no-hover-effect')
+                        each offers, i in offersCardLists
+                            +offersCard(offers, i)
+                    ul.uk-slider-nav.uk-dotnav.uk-flex-center.current-offers-dotanv
+                div(data-uk-slider)
+                    ul(class='uk-slider-items uk-child-width-1-4 uk-grid uk-grid-small no-hover-effect')
+                        each offersBotega, i in botegaVenetaLists
+                            +offersCard(offersBotega, i)
+                    ul.uk-slider-nav.uk-dotnav.uk-flex-center.current-offers-dotanv
+                div(data-uk-slider)
+                    ul(class='uk-slider-items uk-child-width-1-4 uk-grid uk-grid-small no-hover-effect')
+                        each offersLists, i in offersCardLists
+                            +offersCard(offersLists, i)
+                    ul.uk-slider-nav.uk-dotnav.uk-flex-center.current-offers-dotanv
+
+    #item-options(data-uk-modal).catalog-card__modal
+        .uk-modal-dialog
+            button.uk-modal-close-default(type='button')
+                +icon('close-round', 30, 30)
+            .catalog-card__switcher
+                .catalog-card__switcher-btns(data-uk-switcher='animation: uk-animation-slide-left-medium, uk-animation-slide-right-medium; toggle: > *')
+                    +button('default', true).sm
+                        | ХАРАКТЕРИСТИКИ
+                    +button('default', true).sm
+                        | ЗАМЕРЫ
+                    +button('default', true).sm
+                        | ДОСТАВКА И ВОЗВРАТ
+                .uk-switcher.uk-switcher--options
+                    .catalog-card__switcher-item
+                        .catalog-card__switcher-title ХАРАКТЕРИСТИКИ
+                        .catalog-card__switcher-body
+                            table.catalog-card-table
+                                tbody
+                                    tr.catalog-card-table__row
+                                        td.catalog-card-table__cell Материал верха:
+                                        td.catalog-card-table__cell
+                                            span.catalog-card-table__variant Натуральная кожа
+                                            span.catalog-card-table__variant Текстиль
+                                    tr.catalog-card-table__row
+                                        td.catalog-card-table__cell Бренд-код:
+                                        td.catalog-card-table__cell
+                                            span.catalog-card-table__variant 005-SD-59844
+                                    tr.catalog-card-table__row
+                                        td.catalog-card-table__cell Цвет:
+                                        td.catalog-card-table__cell
+                                            span.catalog-card-table__variant Бежевый
+                                            span.catalog-card-table__variant Белый
+                                            span.catalog-card-table__variant Коричневый
+                    .catalog-card__switcher-item
+                        .catalog-card__switcher-title ЗАМЕРЫ
+                        .catalog-card__switcher-body Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab similique labore at dolore numquam voluptas, modi, magni soluta provident natus eligendi quisquam necessitatibus veniam maiores ipsa, inventore voluptates aut quam.
+                    .catalog-card__switcher-item
+                        .catalog-card__switcher-title ДОСТАВКА И ВОЗВРАТ
+                        .catalog-card__switcher-body Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, nulla!
+    #images-modal.uk-modal-full.images-modal(data-uk-modal)
+        .uk-modal-dialog(data-uk-height-viewport)
+            button.uk-modal-close-full.uk-close-large(type='button' data-uk-close='')
+
+            .images-modal__wrap
+                +pictureZoomReceiverMobile(`catalog-card-0-lg`, 300, 300, 'Фото', 'png').catalog-card__mobile-gallery-picture
+                .images-modal__loader-wrap.js-images-modal-loader-wrap
+                    .images-modal__loader(data-uk-spinner="ratio: 3")

@@ -1,0 +1,43 @@
+include ./_form-inputs
+
+mixin filterCatalog(_text, _className)
+    .filter-catalog
+        ul.filter-catalog__lists
+            li.d-none.d-lg-block
+                if (_text != '')
+                    button(data-cat= 'category' class='filter-catalog__button active-tab' data-uk-toggle="target: #category" type="button")
+                        img(src="../../images/category-icon-active.svg", alt="категория" style="width: 16px; height: 16px")
+                        span.filter-catalog__span= `${_text}`
+                else
+                    button(data-cat= 'category' class='filter-catalog__button' data-uk-toggle="target: #category" type="button")
+                        <svg width="16" height="16" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 9L8.71378 12.8798C8.81873 12.9326 8.8712 12.959 8.92624 12.9694C8.97499 12.9786 9.02501 12.9786 9.07376 12.9694C9.1288 12.959 9.18127 12.9326 9.28622 12.8798L17 9M1 13.0237L8.71378 16.9035C8.81873 16.9563 8.8712 16.9827 8.92624 16.9931C8.97499 17.0023 9.02501 17.0023 9.07376 16.9931C9.1288 16.9827 9.18127 16.9563 9.28622 16.9035L17 13.0237M1 4.97625L8.71378 1.09646C8.81873 1.04368 8.8712 1.01729 8.92624 1.0069C8.97499 0.9977 9.02501 0.9977 9.07376 1.0069C9.1288 1.01729 9.18127 1.04368 9.28622 1.09646L17 4.97625L9.28622 8.85604C9.18127 8.90883 9.1288 8.93522 9.07376 8.94561C9.02501 8.95481 8.97499 8.95481 8.92624 8.94561C8.8712 8.93522 8.81873 8.90883 8.71378 8.85604L1 4.97625Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        span.filter-catalog__span= 'категория'
+            if (_className != '')
+                li.d-none
+            else
+                li.d-none.d-lg-block
+                    button(data-cat= 'brend' class='filter-catalog__button' data-uk-toggle="target: #brend" type="button")
+                        <svg width="16" height="16" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.85895 5.85895H5.86705M3.07537 1.75901L1.75902 3.07537C1.47889 3.35549 1.33883 3.49555 1.23867 3.659C1.14987 3.80392 1.08443 3.96191 1.04475 4.12717C1 4.31357 1 4.51165 1 4.9078L1 7.21502C1 7.61117 1 7.80924 1.04475 7.99564C1.08443 8.16091 1.14987 8.3189 1.23867 8.46381C1.33883 8.62726 1.47889 8.76732 1.75901 9.04744L7.96926 15.2577C8.93137 16.2198 9.41243 16.7009 9.96715 16.8811C10.4551 17.0396 10.9807 17.0396 11.4686 16.8811C12.0234 16.7009 12.5044 16.2198 13.4665 15.2577L15.2577 13.4665C16.2198 12.5044 16.7009 12.0234 16.8811 11.4686C17.0396 10.9807 17.0396 10.4551 16.8811 9.96715C16.7009 9.41243 16.2198 8.93137 15.2577 7.96926L9.04744 1.75902C8.76732 1.47889 8.62726 1.33883 8.46381 1.23867C8.31889 1.14987 8.16091 1.08443 7.99564 1.04475C7.80924 1 7.61117 1 7.21502 1L4.9078 1C4.51165 1 4.31357 1 4.12717 1.04475C3.96191 1.08443 3.80392 1.14987 3.659 1.23867C3.49555 1.33883 3.35549 1.47889 3.07537 1.75901ZM6.26386 5.85895C6.26386 6.08258 6.08258 6.26386 5.85895 6.26386C5.63532 6.26386 5.45404 6.08258 5.45404 5.85895C5.45404 5.63532 5.63532 5.45404 5.85895 5.45404C6.08258 5.45404 6.26386 5.63532 6.26386 5.85895Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        span.filter-catalog__span= 'бренд'
+            li.d-none.d-lg-block
+                button(data-cat= 'size' class='filter-catalog__button' data-uk-toggle="target: #size" type="button")
+                    <svg width="16" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.8333 4.66667L16 0.5M16 0.5H11.8333M16 0.5V4.66667M5.16667 4.66667L1 0.5M1 0.5L1 4.66667M1 0.5L5.16667 0.5M5.16667 11.3333L1 15.5M1 15.5H5.16667M1 15.5L1 11.3333M11.8333 11.3333L16 15.5M16 15.5V11.3333M16 15.5H11.8333" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    span.filter-catalog__span= 'размер'
+            li
+                button(data-cat= 'filter&sort' class='filter-catalog__button' data-uk-toggle="target: #filter" type="button")
+                    <svg width="16" height="16" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3.66667 6H14.3333M1 1H17M6.33333 11H11.6667" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    span.filter-catalog__span= 'фильтры и сортировка'
+        ul.d-none.d-lg-flex.filter-catalog__lists.filter-catalog__lists_radio
+            li
+                +inputCheckbox('Sale', 'sale', 'sale', '')
+            li
+                +inputCheckbox('Новинки', 'new', 'new', '')
+

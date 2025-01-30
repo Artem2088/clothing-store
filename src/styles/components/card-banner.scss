@@ -1,0 +1,32 @@
+.card-banner {
+    &__content {
+        padding: rem(30px) rem(30px) rem(34px);
+        background-color: #f7f7f7;
+        display: flex;
+        flex-direction: column;
+        gap: rem(25px);
+        &--light-brand-color {
+            background-color: #fcf7f1;
+        }
+    }
+
+    &__top {
+        display: flex;
+        align-items: flex-start;
+        gap: rem(24px);
+    }
+    &__text {
+        font-family: $font-family-base;
+        font-size: rem(14px);
+        margin-top: -2px;
+        line-height: rem(18px);
+    }
+    &__title {
+        font-size: rem(16px);
+        font-family: $font-family-base-medium;
+        display: flex;
+        align-items: center;
+        gap: rem(15px);
+        margin-bottom: rem(8px);
+    }
+}

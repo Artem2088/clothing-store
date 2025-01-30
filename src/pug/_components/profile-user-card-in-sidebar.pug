@@ -1,0 +1,89 @@
+.profile-user-card.profile-user-card--in-sidebar
+    .profile-user-card__header
+        .profile-user-card__photo-wrap
+            +pictureLazy('profile-photo', 120, 120, '', 'jpg')
+        .js-upload.uk-form-custom.profile-user-card__add-foto.profile-in-sidebar__add-foto
+            input(type="file" multiple title='Выберете фото не больше 10 Мб')
+            span
+                +icon('add-foto-profile', 20, 19)
+        div
+            .profile-user-card__fio
+                .profile-user-card__name Екатерина
+                .profile-user-card__surname Константинова
+            .profile-user-card__edit-profile
+                a(href='#').default-link Редактировать профиль
+                .profile-user-card__status
+                    +icon('smile', 14, 14)
+                    | Заполнен на 75%
+            .profile-user-card__money-status
+                +icon('coins-2', 20, 18)
+                span 23 700 ₽
+                span 3 500 бонусов
+    .profile-user-card__body
+
+        ul.profile-user-card__links-list.profile-user-links
+            li.profile-user-links__item
+                a.profile-user-links__link(href="#").active
+                    +icon('user', 14, 14)
+                    span.profile-user-links__title Мой кабинет
+                    +icon('arrow-next-black', 7, 14)
+            li.profile-user-links__item
+                a.profile-user-links__link(href="#")
+                    +icon('box', 12, 13)
+                    span.profile-user-links__title Мои заказы
+                    +icon('arrow-next-black', 7, 14)
+            li.profile-user-links__item
+                a.profile-user-links__link(href="#")
+                    +icon('doc', 12, 15)
+                    span.profile-user-links__title Мои договоры
+                    +icon('arrow-next-black', 7, 14)
+            li.profile-user-links__item
+                a.profile-user-links__link(href="#")
+                    +icon('heart-black', 12, 11)
+                    span.profile-user-links__title Избранное
+                    +icon('arrow-next-black', 7, 14)
+            li.profile-user-links__item
+                a.profile-user-links__link(href="#")
+                    +icon('search', 12, 12)
+                    span.profile-user-links__title Мой Search List
+                    +icon('arrow-next-black', 7, 14)
+            li.profile-user-links__item
+                a.profile-user-links__link(href="#")
+                    +icon('small-pin', 12, 12)
+                    span.profile-user-links__title Резерв
+                    +icon('arrow-next-black', 7, 14)
+            li.profile-user-links__item
+                a.profile-user-links__link(href="#")
+                    +icon('discount', 12, 12)
+                    span.profile-user-links__title Скидки и бонусы
+                    +icon('arrow-next-black', 7, 14)
+            li.profile-user-links__item
+                a.profile-user-links__link(href="#")
+                    +icon('eye', 14, 10)
+                    span.profile-user-links__title Запись на оценку
+                    +icon('arrow-next-black', 7, 14)
+            li.profile-user-links__item
+                a.profile-user-links__link(href="#")
+                    +icon('coins', 14, 13)
+                    span.profile-user-links__title Запись на выплату
+                    +icon('arrow-next-black', 7, 14)
+            li.profile-user-links__item
+                a.profile-user-links__link(href="#")
+                    +icon('user-edit', 13, 12)
+                    span.profile-user-links__title Запись к стилисту
+                    +icon('arrow-next-black', 7, 14)
+            li.profile-user-links__item
+                a.profile-user-links__link(href="#")
+                    +icon('recycle', 12, 15)
+                    span.profile-user-links__title Запись на возврат
+                    +icon('arrow-next-black', 7, 14)
+            li.profile-user-links__item
+                a.profile-user-links__link(href="#")
+                    +icon('bell-black', 12, 12)
+                    span.profile-user-links__title Подписки
+                    +icon('arrow-next-black', 7, 14)
+            li.profile-user-links__item
+                a.profile-user-links__link(href="#")
+                    +icon('tag', 12, 12)
+                    span.profile-user-links__title Продать вещь
+                    +icon('arrow-next-black', 7, 14)

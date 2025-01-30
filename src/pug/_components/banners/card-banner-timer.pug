@@ -1,0 +1,17 @@
+aside.card-banner
+    .card-banner__content.card-banner__content--light-brand-color
+        .card-banner__top
+            .card-banner__text
+                div.card-banner__title Вещь зарезервирована!
+                    +icon('timer-clock', 20, 18)
+                    div(data-uk-countdown='date: 2024-12-10T06:57:14+00:00')
+                        //span.uk-countdown-days
+                        //span :
+                        span.uk-countdown-hours
+                        span :
+                        span.uk-countdown-minutes
+                        span :
+                        span.uk-countdown-seconds
+                | Узнай о преимуществах кошелька и начинай пользоваться им уже сейчас
+        +button('brand', true)
+            | Встать в очередь

@@ -1,0 +1,21 @@
+.order-done-modal {
+    width: 100%;
+    max-width: rem(600px) !important;
+    padding: rem(100px) rem(140px) rem(120px);
+    @include media('max', 'lg') {
+        padding: 20px 15px;
+    }
+    &__header {
+        margin-bottom: rem(50px);
+    }
+    &__title {
+        font-family: $font-family-cormorant-unicase-bold;
+        font-size: rem(24px);
+        text-align: center;
+        text-transform: uppercase;
+    }
+    &__body {
+        text-align: center;
+        margin-bottom: rem(94px);
+    }
+}

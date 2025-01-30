@@ -1,0 +1,107 @@
+.category-upper{
+    &__wrapp{
+        width: 100%;
+    }
+    &__title {
+        font-family: $font-family-cormorant-unicase-light;
+        font-size: rem(33px);
+        line-height: 1.21;
+    }
+}
+.category-baner{
+    padding: rem(36px) 0 0;
+
+    @media (max-width: 991px) {
+        padding: rem(21px) 0 0;
+    }
+    @media (max-width: 768px) {
+        width: 100vw;
+        padding-top: rem(30px);
+        padding-bottom: rem(10px);
+    }
+    &__button {
+        padding: rem(8px) rem(16px);
+
+        @media (max-width: 991px) {
+            padding: rem(8px) rem(30px);
+        }
+    }
+    &__title {
+        font-family: $font-family-cormorant-unicase-light;
+        font-size: rem(33px);
+
+        @media (max-width: 991px) {
+            font-family: $font-family-cormorant-unicase;
+            font-size: rem(18px);
+        }
+    }
+    &__wrapp {
+        margin: rem(40px) 0 rem(70px);
+
+        @media (max-width: 991px) {
+            width: 100vw;
+            position: relative;
+            left: rem(-8px);
+        }
+    }
+    &__image{
+        width: 100%;
+    }
+    &__rigth-block{
+        padding-block: rem(30px);
+        padding-inline: rem(15px);
+    }
+    &__rigth-block p {
+        width: 100%;
+        font-size: rem(16px);
+        line-height: 1.5;
+        text-align: center;
+        margin: rem(10px) 0 rem(30px);
+        font-size: rem(14px);
+        padding-inline: rem(150px);
+
+        @media (max-width: 991px) {
+            font-size: rem(12px);
+            margin: rem(4px) 0 rem(11px);
+            color: $color-text-gray;
+        }
+
+        @media (max-width: 768px) {
+            font-size: rem(14px);
+            line-height: rem(20px);
+        }
+    }
+}
+.category-commission{
+    margin-bottom: rem(54px);
+
+    @media (max-width: 320px) {
+        margin-bottom: rem(47px);
+    }
+}
+
+.breadcrumb-catalog-category {
+    border-bottom: rem(1px) solid $color-border-breadcrumbs;
+
+        @media (max-width: 991px) {
+            border-bottom: none;
+        }
+
+        @media (max-width: 768px) {
+            padding-top: rem(5px);
+            padding-bottom: rem(10px);
+        }
+}
+.catalog-category-grid {
+    width: 100%;
+    padding: rem(36px) 0 0;
+
+    @media (max-width: 768px) {
+        padding: rem(15px) 0 0;
+    }
+    &__second{
+        @media (max-width: 768px) {
+            padding-top: 0;
+        }
+    }
+}

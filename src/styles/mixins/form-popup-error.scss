@@ -1,0 +1,61 @@
+.popup-error{
+    position: absolute;
+    top: rem(-10px);
+    left: rem(-434px);
+    max-width: rem(424px);
+    width: 100%;
+    padding-top: rem(35px);
+    padding-inline: rem(40px);
+    padding-bottom: rem(43px);
+    box-shadow: 0px rem(5px) rem(30px) 0px rgba(0, 0, 0, 0.2);
+    background: rgb(255, 255, 255);
+    color: $color-dark-text;
+    display: none;
+
+    &__wrapper{
+        display: flex;
+        flex-direction: column;
+        row-gap: rem(20px);
+        align-items: flex-start;
+        position: relative;
+    }
+    &__btn-close {
+        position: absolute;
+        top: rem(-7px);
+        right: rem(-11px);
+    }
+    &__title{
+        font-family: $font-family-cormorant-unicase-bold;
+        font-size: rem(18px);
+        line-height: 1.21;
+        letter-spacing: rem(1px);
+        text-transform: uppercase;
+    }
+    &__description{
+        line-height: 1.42857;
+    }
+    &__link{
+        line-height: 1.42857;
+        text-decoration: underline !important;
+        color: inherit;
+    }
+}
+.popup-error::after{
+    content: '';
+    position: absolute;
+    top: rem(16px);
+    right: rem(-17px);
+    width: 0;
+	height: 0;
+	border-top: rem(20px) solid transparent;
+	border-left: rem(34px) solid $color-ligth-text;
+	border-bottom: rem(20px) solid transparent;
+}
+.popup-error.validation-error {
+    display: flex;
+}
+
+#form-email input.validation-error,
+#form-register input.validation-error {
+    color: $color-error-form;
+}

@@ -1,0 +1,88 @@
+include ./_helpers
+
+mixin inputText(label, name, isRequired, isNumber, type, value, isPrice)
+    .form-field.form-field--text.js-form-field--input-text(class=`${isRequired ? 'required' : ''}`)&attributes(attributes)
+        label.form-field__label
+            input.form-field__input.js-input-text(type=`${type && type !== 'date' ? type : 'text'}` name=`${name}` class=`${isNumber ? 'js-input-number' : ''}${type === 'password' ? 'js-input-password' : ''}${type === 'email' ? 'js-input-email' : ''}${type === 'date' ? 'js-input-date' : ''}` value=`${value ? value : ''}` data-price=`${isPrice ? 'Y' : 'N'}`)
+            span.form-field__title.js-input-title #{label}
+            if type === 'password'
+                span.form-field__icon.js-show-password
+                    +icon('eye', 17, 12)
+        .form-field__error-block
+
+mixin inputPhone(label, name, isRequired)
+    .form-field.form-field--text.js-form-field--input-text(class=`${isRequired ? 'required' : ''}`)&attributes(attributes)
+        label.form-field__label
+            input.form-field__input.js-input-text.js-input-phone(type='tel' name=`${name}`)
+            span.form-field__title.js-input-title #{label}
+        .form-field__error-block
+
+
+mixin inputSelect(label, name, isRequired, isSearch, values)
+    .form-field.js-form-field--input-select(class=`${isRequired ? 'required' : ''}`)&attributes(attributes)
+        label.form-field__label
+            select.chosen-select.js-input-select(name=`${name}` class=`${isSearch ? '' : 'no-search'}`)
+                option(value='0')
+                each item in values
+                    option(value=`${item.value}`) #{item.name}
+            +icon('form-arrow', 16, 9).form-field__arrow
+            span.form-field__title.js-input-title #{label}
+        .form-field__error-block
+
+mixin inputSelectChips(label, name, isRequired, isSearch, values, buttonText)
+    .form-field.js-form-field--input-select-chips.form-field--chips(class=`${isRequired ? 'required' : ''}`)&attributes(attributes)
+        label.form-field__label.form-field__label--chips(for=`${name}`) #{label}
+        select.chosen-select-chips.js-input-select(name=`${name}` id=`${name}` class=`${isSearch ? '' : 'no-search'}` multiple data-button-text=`${buttonText}`)
+            option(value='0')
+            each item in values
+                option(value=`${item.value}`) #{item.name}
+        .form-field__error-block
+
+mixin inputRadio(label, name, value, description, additional, isRequired)
+    .form-field.form-field--radio(class=`${isRequired ? 'required' : ''}`)&attributes(attributes)
+        label.form-field__label
+            input.form-field__input(type='radio' value=`${value}` name=`${name}`)
+            span.form-field__check
+            span.form-field__backdrop
+            span.form-field__content
+                span.form-field__title #{label}
+                    if block
+                        block
+                if description
+                    span.form-field__description #{description}
+            if additional
+                span.form-field__additional #{additional}
+        .form-field__error-block
+
+mixin inputRadioSmall(label, name, value, isRequired)
+    .form-field.form-field--radio-small(class=`${isRequired ? 'required' : ''}`)&attributes(attributes)
+        label.form-field__label
+            input.form-field__input(type='radio' value=`${value}` name=`${name}`)
+            span.form-field__check
+            span.form-field__title #{label}
+        .form-field__error-block
+
+mixin inputCheckbox(label, name, id, isRequired)
+    .form-field.form-field--checkbox(class=`${isRequired ? 'required' : ''}`)&attributes(attributes)
+        input.form-field__input(type='checkbox' name=`${name}` id=`${id}`)
+        label.form-field__label(for=`${id}`)
+            span
+                svg(width='9px' height='7px' viewbox='0 0 12 9')
+                    polyline(points='1 5 4 8 11 1')
+            span #{label}
+
+
+
+mixin inputTextarea(label, name, isRequired, isAutogrow)
+    .form-field.form-field--text.js-form-field--input-text(class=`${isRequired ? 'required' : ''}`)&attributes(attributes)
+        label.form-field__label
+            textarea.form-field__input.js-input-text(name=`${name}` class=`${isAutogrow ? 'js-input-textarea-autogrow' : ''}`)
+            span.form-field__title.js-input-title #{label}
+        .form-field__error-block
+
+mixin inputVerificationCode(label, name, isRequired)
+    .form-field.form-field--text.js-form-field--input-text(class=`${isRequired ? 'required' : ''}`)&attributes(attributes)
+        label.form-field__label
+            input.form-field__input.js-input-text.js-input-verificationCode(type='text' name=`${name}`)
+            span.form-field__title.js-input-title #{label}
+        .form-field__error-block

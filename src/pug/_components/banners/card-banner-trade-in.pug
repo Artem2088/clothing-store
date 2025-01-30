@@ -1,0 +1,11 @@
+aside.card-banner
+    .card-banner__content
+        .card-banner__top
+            +icon('trade', 40, 40).card-banner__icon
+            .card-banner__text
+                span.card-banner__title Плати меньше с Trade-in
+                    +icon('info', 18, 18)(data-uk-tooltip="title: Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium ipsum similique rem deserunt iusto, culpa quis beatae perspiciatis;")
+                | Продавай вещи и сразу забирай то, что нравится. Оплати только разницу. Избавляйся от старого и владей новым.
+
+        +button('default', true)(href='#trade-in-group-1' data-uk-toggle='')
+            | TRADE-IN

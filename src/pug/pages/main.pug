@@ -1,0 +1,133 @@
+extends ../templates/layout
+include ../mixins/_image
+include ../mixins/_link-button
+include ../mixins/_title
+include ../mixins/_offers-card
+
+block main
+    section(data-uk-slider='autoplay: true; autoplay-interval: 4000' class='promo')
+        .uk-slider-container.promo__container
+            .uk-slider-items.uk-grid
+                .row.promo__wrapper
+                    .col-12.col-lg-6.px-0.promo__left-side
+                        +image('promo-lg.png', 720, 600, 'd-block promo__image')
+                    .col-12.col-lg-6.promo__info-wrap
+                        +title('h1', "Тратить и экономить", 'promo__title')
+                        p Премиальные условия и лучшие цены только для членов клуба NewLifeModa
+                        +linkButton('#', 'узнать о клубе', 'promo__button')
+                .row.promo__wrapper
+                    .col-12.col-lg-6.px-0.promo__left-side
+                        +image('promo-lg-2.webp', 720, 600, 'd-block promo__image')
+                    .col-12.col-lg-6.promo__info-wrap
+                        +title('h1', "Lorem, ipsum dolor", 'promo__title')
+                        p Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                        +linkButton('#', 'узнать о клубе', 'promo__button')
+                .row.promo__wrapper
+                    .col-12.col-lg-6.px-0.promo__left-side
+                        +image('promo-lg-3.webp', 720, 600, 'd-block promo__image')
+                    .col-12.col-lg-6.promo__info-wrap
+                        +title('h1', "Lorem, ipsum dolor", 'promo__title')
+                        p Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                        +linkButton('#', 'Lorem, ipsum dolor', 'promo__button')
+    section.section.gender
+        +title('h2', 'Начните шоппинг с выбора раздела', 'px-4 px-md-0 gender__main-title')
+        ul.gender__card-lists
+            each card, i in cards
+                li.gender__item(style=`background-image: url("./images/chapter-${i}.jpg");`)
+                    a(href='#').gender__mobile-link
+                    .gender__card(class='gender__card_' + i)
+                        +title('h3', card.title, 'gender__title')
+                        ul.gender__links
+                            each link, index in card.links.name
+                                li.gender__link
+                                    a(href=card.links.link[index])=link
+                        +linkButton('#', 'ВСЕ КАТЕГОРИИ', 'gender__button')
+    section(class='section current-offers')
+        +title('h2', 'Актуальные предложения', 'px-5 px-md-0 current-offers__main-title')
+        ul(class='current-offers__nav-wrap' data-uk-tab='swiping: false')
+            each link, i in ['НОВИНКИ','РЕКОМЕНДУЕМ','СКИДКИ','SEARCH LIST']
+                li.current-offers__item
+                    button(type='button' class=`current-offers__tabs`)= link
+        .uk-switcher
+            div(data-uk-slider)
+                ul(class='uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m uk-grid uk-grid-small no-hover-effect')
+                    each offers, i in offersCardLists
+                        +offersCard(offers, i)
+                ul.uk-slider-nav.uk-dotnav.uk-flex-center.current-offers-dotanv
+            div(data-uk-slider)
+                ul(class='uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m uk-grid uk-grid-small no-hover-effect')
+                    each offersBotega, i in botegaVenetaLists
+                        +offersCard(offersBotega, i)
+                ul.uk-slider-nav.uk-dotnav.uk-flex-center.current-offers-dotanv
+            div(data-uk-slider)
+                ul(class='uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m uk-grid uk-grid-small no-hover-effect')
+                    each offers, i in offersCardLists
+                        +offersCard(offers, i)
+                ul.uk-slider-nav.uk-dotnav.uk-flex-center.current-offers-dotanv
+            div(data-uk-slider)
+                ul(class='uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m uk-grid uk-grid-small no-hover-effect')
+                    each offersCat, i in botegaVenetaLists
+                        +offersCard(offersCat, i)
+                ul.uk-slider-nav.uk-dotnav.uk-flex-center.current-offers-dotanv
+        +linkButton('#', 'смотреть все предложения', 'uk-margin-medium-top current-offers__button')
+        +linkButton('#', 'смотреть все', 'current-offers__button current-offers__button-mobile')
+    section.section.info
+        ul.info__lists
+            each item, i in infoCards
+                li.info__item(class='info__item_' + item.type)
+                    +title('h3', item.title, 'info__title')
+                    .info__image-wrapp
+                        +image(item.image, 233, 284, 'info__image')
+                        .info__bg
+                    p.px-2= item.text
+                    +linkButton('#', 'подробнее', 'info__button')
+    section.section.brands
+        +title('h2', 'Популярные бренды')
+        .uk-position-relative.uk-visible-toggle.brands__wrapper
+            div(data-uk-slider)
+                ul.uk-slider-items.brands__lists
+                    each item in brands
+                        li.brands__each
+                            a(href='#')
+                                +image(item, 170, 75, 'brands__image')
+                ul.d-md-none.uk-slider-nav.uk-dotnav.uk-flex-center.mt-5.current-offers-dotanv
+    section.section.discount
+        +title('h2', 'Лучшие предложения с дисконтом', 'discount__main-title')
+        ul.discount__lists
+            each item, i in discontCards
+                li.uk-card.discount__item
+                    +image(item.image, 370, 250, 'discount__image')
+                    .discount__wrapper
+                        +title('h3', item.title, 'discount__title')
+                        p= item.desc
+                        +linkButton('#', 'купить', 'discount__button')
+    section.section.subscribe
+        .subscribe__contacts
+            +title('h2', 'Нужна помощь?', 'subscribe__contacts-title')
+            ul.subscribe__contacts-wrapper
+                each item, i in contacts
+                    li.subscribe__contacts-item
+                        +image(item.icon, 20, 20, "subscribe__contacts-item-image")
+                        +linkButton(item.link, item.text, 'subscribe__contacts-item-link')
+                li.d-flex.d-lg-none
+                    .subscribe__contacts-item
+                        +image('mail-icon.svg', 20, 20, "subscribe__contacts-item-image")
+                        +linkButton('mailto:info@newlife.moda', 'info@newlife.moda', 'subscribe__contacts-item-link subscribe__contacts-item-link_mail')
+            .d-none.d-lg-flex.subscribe__contacts-item
+                +image('mail-icon.svg', 20, 20, "subscribe__contacts-item-image")
+                +linkButton('mailto:info@newlife.moda', 'info@newlife.moda', 'subscribe__contacts-item-link subscribe__contacts-item-link_mail')
+        include ../_components/forms/subscribe-form
+    section.section.commission
+        +title('h2', 'Комиссионный магазин Newlife.moda', '')
+        .row.commission__desc-wrapp
+            p
+                | Чем отличается одежда известных брендов от масс-маркета?
+                | Конечно, безупречным кроем, качественными материалами и оригинальным стилем.
+                | Регулярно обновлять гардероб в брендовых магазинах и аутлетах бывает довольно накладно, здесь на помощь придет комиссионный бутик NewLife.
+            p.d-none.js-display-block
+                | Магазин брендовой одежды Ньюлайф стал флагманским местом,
+                | буквально Resale store №1 в России, где можно удачно купить или выгодно продать одежду, обувь и аксессуары самых популярных марок,
+                | включая Patrizia Pepe, Philipp Plein, Louis Vuitton, Kiton, Chanel, Abercrombie&Fitch,
+                | Baldinini, Escada, Max Mara, Prada, Brunello Cucinelli, Dior, Fendi, Hermes, Moshino или Testoni.
+                | Эксклюзивная особенность бутика – шубный зал, где представлены меховые изделия в идеальном состоянии.
+        +linkButton('', 'читать дальше', 'commission__link')

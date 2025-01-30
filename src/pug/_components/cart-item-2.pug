@@ -1,0 +1,33 @@
+include ../mixins/_helpers
+.cart-item
+    .cart-item__img-wrap
+        +pictureLazy(`cart-item-01`, 140, 140, 'Фото', 'png')
+    .cart-item__content
+        .cart-item__description
+            .cart-item__title
+                span.cart-item__title.cart-item__title--brand Louis Vuitton&nbsp;
+                | Кожаная сумка
+            .cart-item__dimensions.dimensions
+                +icon('info', 18, 18).dimensions__icon(data-uk-tooltip="title: Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium ipsum similique rem deserunt iusto, culpa quis beatae perspiciatis;")
+                .dimensions__text Размер:&nbsp;
+                    ul.dimensions__list.dimensions__list--other-type
+                        li.dimensions__list-item В40
+                        li.dimensions__list-item Ш50
+                        li.dimensions__list-item Г20
+        .cart-item__price
+            .cart-item__price-current 210&nbsp;600
+        .cart-item__bonus
+            .cart-item__bonus-label Бонус за эту покупку:&nbsp;
+                span.cart-item__bonus-sum 1&nbsp;000 баллов
+
+    .cart-item__controls
+        .cart-item__control-item
+            button.button.button--no-border.no-padding
+                +icon('trash', 16, 16)
+            .cart-item__control-item-dialog(data-uk-drop='mode: click; animation: slide-right; animate-out: true')
+                .cart-item__control-item-dialog-question Удалить товар?
+                .cart-item__control-item-dialog-btns
+                    +button('dark')
+                        | да
+                    +button('default').uk-drop-close
+                        | нет

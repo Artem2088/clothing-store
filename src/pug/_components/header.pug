@@ -1,0 +1,55 @@
+include ../mixins/_link-button
+include ../mixins/_image
+
+
+header.header
+    include ./event
+    .container.container-base
+        .d-none.d-lg-flex.row.header-main
+            .col-12.px-0.header-main__wrapper
+                ul.header-main__lists
+                    each item in ["Женское", "Мужское", "Детское"]
+                        if(item == "Мужское")
+                            li.header-main__item.active-link
+                                a.header-main__link(href='#')= item
+                        else
+                            li.header-main__item
+                                a.header-main__link(href='#')= item
+                a.header-main__logo-link(href="/")
+                    +image('logo.svg', 234, 30, '')
+                ul.header-main__lists-office
+                    li.header-main__item-office
+                        a(href='#login-email' class='header-main__button' data-uk-toggle)= 'Личный кабинет'
+                    li.header-main__item-office
+                        a(href="#" data-uk-toggle="target: #profile-sidebar")
+                            +image('user-image.svg', 24, 24, '')
+                    li.header-main__item-office
+                        button(type='button' data-user='global-search' class='header-main__button')
+                            +image('magnifier-image.svg', 24, 24, '')
+                    li.header-main__item-office
+                        button(type='button' data-user='' class='header-main__button')
+                            +image('favourites-image.svg', 26, 26, '')
+                    li.header-main__item-office
+                        a(href="#" data-uk-toggle="target: #cart-sidebar")
+                            +image('basket-image.svg', 24, 24, '')
+            nav.px-0.header-nav
+                ul.col-7.col-lg-9.uk-nav.header-nav__lists
+                    each navItem in navigationLists
+                        if(navItem.name == 'ОБУВЬ')
+                            li.header-nav__item
+                                a.header-nav__link.active-category(href="#" data-nav=navItem.data)= navItem.name
+                        else
+                            li.header-nav__item
+                                a.header-nav__link(href='#' data-nav=navItem.data)= navItem.name
+                +linkButton('#', 'продать товар', 'header__button-sell')
+            .px-0.header-alphabet
+                include ./alphabet
+                .offset-1.header-alphabet__box
+                    a(href="#")= 'РУС'
+                    a(href="#")= 123
+        include header-mobile
+    include modals/menu/menu-clothes
+    include modals/menu/menu-sale
+    include modals/menu/menu-new
+    include modals/menu/menu-brands
+

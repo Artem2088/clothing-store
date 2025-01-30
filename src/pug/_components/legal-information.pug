@@ -1,0 +1,15 @@
+include ../mixins/_image
+
+.px-2.legal-info
+    .legal-info__wrapp
+        ul.legal-info__lists
+            each icon in banksIcon
+                li
+                    +image(icon, 49, 16, 'legal-info__image')
+        ul.legal-info__links
+            each link in links
+                li
+                    a(href='#').legal-info__link= link
+    p
+        | Нажимая кнопку «Вступить в клуб», вы подтверждаете свое согласие на получение информации о товарах в вашей корзине по email,
+        | а также соглашаетесь на обработку персональных данных в соответствии с #[a(href='#').legal-info__link.legal-info__link_underline= 'Политикой конфиденциальности.']

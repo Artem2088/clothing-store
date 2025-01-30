@@ -1,0 +1,25 @@
+extends ../templates/layout
+include ../mixins/_breadcrumbs
+include ../mixins/_title
+include ../mixins/_form-inputs
+include ../mixins/_image
+include ../mixins/_link-button
+include ../mixins/_form-popup-error
+
+block main
+    +breadcrumbs('', 'breadcrumb-catalog-category', 'Главная', 'Бренды')
+    .static-login
+        .login-container
+            +title('h2', 'Добро пожаловать', 'login-container__title')
+            span.login-container__title.login-container__title_span= 'в закрытый клуб newlife.moda'
+            a(href='#login-phone' class='login-container__link' data-uk-toggle)= 'ВОЙТИ ПО ТЕЛЕФОНУ'
+            form#form-email.login-form
+                +inputText('E-mail', 'email', true, false, 'email')
+                +inputText('Пароль', 'password', true, false, 'password')
+                +formPopupError('Указанный пользователь отсутствует в системе. Проверьте адрес на наличие ошибок или:', 'Войдите по номеру телефона', 'Зарегистрируйтесь')
+                .login-forget
+                    +inputCheckbox('Запомнить меня', 'forget-radio', 'forget-radio', true)
+                    a(href="#" class='login-forget__link')= 'Забыли пароль?'
+                button(type='submit' class='uk-button login-container__submit')= 'войти'
+            a(href="#register" class='login-container__link-register' data-uk-toggle)= 'Впервые у нас? Зарегистрируйтесь!'
+            a(href="#" class='login-container__link-info')= 'Узнать подробнее о преимуществах регистрации'

@@ -1,0 +1,8 @@
+mixin formPopupError(text, ...links)
+    .popup-error
+        .popup-error__wrapper
+            button(type='button' data-uk-icon="close" class='popup-error__btn-close')
+            span.popup-error__title= 'Ошибка!'
+            span.popup-error__description #{text}
+            each link in links
+                a(href="#" class='popup-error__link')= link

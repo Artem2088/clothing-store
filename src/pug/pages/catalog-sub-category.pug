@@ -1,0 +1,40 @@
+extends ../templates/layout
+include ../mixins/_image
+include ../mixins/_link-button
+include ../mixins/_title
+include ../mixins/_offers-card
+include ../mixins/_breadcrumbs
+include ../mixins/_pagination
+include ../mixins/_filterCatalog
+
+
+block main
+    section.section.upper.category-upper
+        .row.upper__wrapp.category-upper__wrapp
+            .col-12.col-lg-6.px-0
+                +image('subcategory-main-image.jpg', 600, 340, 'd-block upper__image')
+                +title('h2', 'Ботинки для мужчин', 'd-block d-lg-none upper__title upper__title_mobile')
+            .d-none.d-lg-flex.col-12.col-lg-6.mt-5.mt-lg-0.upper__rigth-block
+                +title('h2', 'Ботинки для мужчин', 'upper__title category-upper__title')
+                p Поднимите свой образ с помощью кроссовок, каблуков, ботинок и сапог от Bottega Veneta
+    +breadcrumbs('6 товаров', 'breadcrumb-catalog-category', 'Главная', 'Мужское', 'Обувь', 'Ботинки')
+    +filterCatalog('КАТЕГОРИЯ - 1', '')
+    section.catalog-category-grid
+        ul.pb-lg-4.catalog-grid
+            each subCategoryItem, i in subCategoryLists
+                +offersCard(subCategoryItem, i)
+    +pagination(23)
+    section.mb-lg-5.section.commission
+        +title('h2', 'Брендовые мужские ботинки', 'px-4 px-lg-0')
+        .row.commission__desc-wrapp
+            p
+                | Чем отличается одежда известных брендов от масс-маркета?
+                | Конечно, безупречным кроем, качественными материалами и оригинальным стилем.
+                | Регулярно обновлять гардероб в брендовых магазинах и аутлетах бывает довольно накладно, здесь на помощь придет комиссионный бутик NewLife.
+            p.d-none.js-display-block
+                | Магазин брендовой одежды Ньюлайф стал флагманским местом,
+                | буквально Resale store №1 в России, где можно удачно купить или выгодно продать одежду, обувь и аксессуары самых популярных марок,
+                | включая Patrizia Pepe, Philipp Plein, Louis Vuitton, Kiton, Chanel, Abercrombie&Fitch,
+                | Baldinini, Escada, Max Mara, Prada, Brunello Cucinelli, Dior, Fendi, Hermes, Moshino или Testoni.
+                | Эксклюзивная особенность бутика – шубный зал, где представлены меховые изделия в идеальном состоянии.
+        +linkButton('', 'читать дальше', 'commission__link')

@@ -1,0 +1,39 @@
+#trade-in-group-1(data-uk-modal='')
+    .uk-modal-dialog.trade-in-modal
+        button.uk-modal-close-default.modal-close-default(type='button')
+            +icon('close-round', 30, 30)
+        .trade-in-modal__header
+            h2.trade-in-modal__title Платите меньше с trade-in
+        .trade-in-modal__body.trade-in-modal__body--type-cards
+            .trade-in-modal-card.trade-in-modal-card--main-card
+                .trade-in-modal-card__header Купите эту вещь
+                .trade-in-modal-card__body
+                    .trade-in-modal-card__img-wrap
+                        +pictureLazy(`catalog-card-1-lg`, 179, 186, 'Фото', 'png')
+                    .trade-in-modal-card__descr
+                        span.trade-in-modal-card__brand Dolce & Gabbana&nbsp;
+                        | кроссовки
+                        .trade-in-modal-card__price 23&nbsp;000
+                        +icon('minus', 30, 30).trade-in-modal-card__price-operation
+            .trade-in-modal-card
+                .trade-in-modal-card__header Предложите свою Trade-IN
+                .trade-in-modal-card__body
+                    .trade-in-modal-card__img-wrap
+                        +pictureLazy(`trade-in-modal-01-2x`, 179, 186, 'Фото', 'png')
+                    .trade-in-modal-card__descr
+                        | Проведем оценку и сообщим Вам стоимость
+                        .trade-in-modal-card__price 13&nbsp;000
+                        +icon('equals', 30, 30).trade-in-modal-card__price-operation
+            .trade-in-modal-card
+                .trade-in-modal-card__header Оплатите разницу
+                .trade-in-modal-card__body
+                    .trade-in-modal-card__img-wrap
+                        +pictureLazy(`trade-in-modal-02-2x`, 179, 186, 'Фото', 'png')
+                    .trade-in-modal-card__descr
+                        | Заберем вашу вещь в счет покупки новой
+                        .trade-in-modal-card__price 10&nbsp;000
+        .trade-in-modal__footer
+            .row
+                .col-lg-4.offset-lg-4
+                    +button('dark', true)(href='#trade-in-group-2' data-uk-toggle='')
+                        | начать сделку

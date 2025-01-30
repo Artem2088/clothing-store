@@ -1,0 +1,96 @@
+.trade-in-modal {
+    width: 100%;
+    max-width: rem(1000px) !important;
+    padding: rem(50px) rem(80px) rem(100px);
+    @include media('max', 'lg') {
+        padding: 20px 15px;
+    }
+    &__header {
+        margin-bottom: rem(50px);
+        @include media('max', 'lg') {
+            padding: 0 40px;
+        }
+    }
+    &__title {
+        font-family: $font-family-cormorant-unicase-bold;
+        font-size: rem(24px);
+        text-align: center;
+        text-transform: uppercase;
+    }
+    &__subtext {
+        text-align: center;
+        color: #767676;
+        max-width: rem(464px);
+        margin: 0 auto rem(50px);
+    }
+    &__body {
+        &--type-cards {
+            display: grid;
+            column-gap: rem(90px);
+            grid-template-columns: repeat(3, 1fr);
+            @include media('max', 'lg') {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+}
+.trade-in-modal-card {
+    &:not(&--main-card) .trade-in-modal-card__descr {
+        margin-top: rem(8px);
+    }
+    &:not(&--main-card) .trade-in-modal-card__price {
+        margin-top: rem(21px);
+    }
+    &__header {
+        font-family: $font-family-cormorant-unicase-medium;
+        font-size: rem(14px);
+        display: grid;
+        place-items: center;
+        padding: rem(7px) rem(20px);
+        background-color: #e9e9e9;
+    }
+    &__body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: rem(73px);
+        position: relative;
+    }
+    &__descr {
+        font-size: rem(14px);
+        text-align: center;
+    }
+    &__brand {
+        display: block;
+        font-family: $font-family-cormorant;
+        font-size: rem(22px);
+    }
+    &__img-wrap {
+        padding: rem(52px) rem(44px) rem(60px);
+        height: rem(240px);
+        @include media('max', 'lg') {
+            height: auto;
+            padding: 20px;
+        }
+        & img {
+            width: 100%;
+
+            object-fit: contain;
+        }
+    }
+    &__price-operation {
+        position: absolute;
+        right: rem(-60px);
+        bottom: rem(70px);
+        @include media('max', 'lg') {
+            right: 50%;
+            transform: translateX(50%);
+            bottom: 22px;
+        }
+    }
+    &__price {
+        font-family: $font-family-base-medium;
+        font-size: rem(16px);
+        margin-top: rem(17px);
+    }
+}
