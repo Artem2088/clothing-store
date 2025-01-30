@@ -22,4 +22,7 @@
 - Установите зависимости (npm install);
 - Запустите сервер разработки, выполнив следующую команду (npm run serve).
 
+## В процессе внедрения:
 - Работу можно посмотреть по ссылке: https://artem2088.github.io/clothing-store/
+
+- ssurge.sh mean-stage.surge.sh
