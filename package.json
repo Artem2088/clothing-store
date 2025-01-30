@@ -1,8 +1,7 @@
 {
-  "name": "newlaifmoda",
+  "name": "clothing-store",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "homepage": "https://artem2088.github.io/clothing-store/",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack",
